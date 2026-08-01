@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - ADVAITA</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="team-carousel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Fredoka:wght@600;700&family=Griffy&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Shadows+Into+Light&family=Signika:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -533,6 +534,34 @@
                 to excellence.
             </p>
 
+            <!-- Team Carousel -->
+            <div class="circular-carousel" style="margin: 60px 0;">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Cards will be dynamically inserted here -->
+                </div>
+
+                <div class="carousel-center">
+                    <div class="carousel-number" id="carouselNumber">01</div>
+                    <div class="carousel-total" id="carouselTotal">of 06</div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn" aria-label="Previous">
+                        <svg class="chevron" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <div class="carousel-dots" id="carouselDots"></div>
+
+                    <button class="carousel-btn" id="nextBtn" aria-label="Next">
+                        <svg class="chevron" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
             <div class="team-stats">
                 <div class="team-stat">
                     <div class="stat-number">15+</div>
@@ -577,5 +606,6 @@
     </section>
 
     <script src="script.js"></script>
+    <script src="team-carousel.js"></script>
 </body>
 </html>

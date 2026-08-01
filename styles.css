@@ -1750,6 +1750,8 @@ html {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    min-height: 400px;
+    height: 400px;
 }
 
 /* GIF Card Styles */
