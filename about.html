@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ADVAITA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Space+Mono:wght@400;700&family=Signika:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Yuyu+Short&display=swap" rel="stylesheet">
+    <style>
+        .about-page-hero {
+            min-height: 100vh;
+            background: white;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-page-hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .about-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            color: white;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+
+        .about-hero-content h1 {
+            font-family: "Yuyu Short", sans-serif;
+            font-size: 80px;
+            color: #0a0f1e;
+            margin-bottom: 32px;
+            line-height: 1.1;
+        }
+
+        .about-hero-content h1 .gradient-text {
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-hero-content .lead-text {
+            font-size: 24px;
+            color: #0a0f1e;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .about-hero-content .description {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 100px 20px;
+            background: #f8fafc;
+        }
+
+        .story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 500px;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image img {
+            width: 80%;
+            height: auto;
+            max-width: 400px;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-content h2 {
+            font-size: 48px;
+            color: #0a0f1e;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .story-content p {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .story-content p.highlight {
+            font-size: 20px;
+            color: #0a0f1e;
+            font-weight: 600;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .values-header h2 {
+            font-size: 56px;
+            color: #0a0f1e;
+            margin-bottom: 20px;
+        }
+
+        .values-header p {
+            font-size: 20px;
+            color: #64748b;
+        }
+
+        .values-list {
+            display: grid;
+            gap: 48px;
+        }
+
+        .value-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .value-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .value-content h3 {
+            font-size: 28px;
+            color: #0a0f1e;
+            margin-bottom: 12px;
+        }
+
+        .value-content p {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0a0f1e 0%, #050810 100%);
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-container h2 {
+            font-size: 56px;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .team-container .team-description {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .team-stat {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-stat:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .team-stat .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #22d3ee;
+            margin-bottom: 12px;
+        }
+
+        .team-stat .stat-label {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: 48px;
+            color: #0a0f1e;
+            margin-bottom: 24px;
+        }
+
+        .cta-container p {
+            font-size: 20px;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-primary {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+        }
+
+        .cta-btn-outline {
+            padding: 18px 40px;
+            background: white;
+            color: #0891b2;
+            border: 2px solid #0891b2;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn-outline:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 968px) {
+            .about-hero-content h1 {
+                font-size: 48px;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .story-image {
+                height: 350px;
+            }
+
+            .team-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .value-item {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .team-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-glow"></div>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Generated_image_1-removebg-preview.png" alt="ADVAITA Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link animated-link" data-text="Home">Home</a></li>
+                <li><a href="index.html#services" class="nav-link animated-link" data-text="Services">Services</a></li>
+                <li><a href="about.html" class="nav-link animated-link" data-text="About">About</a></li>
+                <li><a href="portfolio.html" class="nav-link animated-link" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact" class="nav-link animated-link" data-text="Contact">Contact</a></li>
+                <li><button class="liquid-metal-btn" onclick="window.location.href='get-started.html'">Get Started</button></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-page-hero">
+        <div class="about-hero-content">
+            <div class="about-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+                WHO WE ARE
+            </div>
+            
+            <h1>
+                Not Just Developers.<br>
+                <span class="gradient-text">Digital Dreamweavers.</span>
+            </h1>
+
+            <p class="lead-text">
+                We're not just another software company or tech agency — we're your Digital Innovation Partner.
+            </p>
+
+            <p class="description">
+                ADVAITA was born from a simple belief: that great software isn't just about clean code 
+                and perfect algorithms. It's about understanding dreams, solving real problems, and 
+                creating experiences that make people's lives better. We believe definitions are limiting, 
+                boxes are meant to be broken, and the best solutions come from thinking differently.
+            </p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-container">
+            <div class="story-image">
+                <img src="logo.jpeg" alt="ADVAITA Logo">
+            </div>
+
+            <div class="story-content">
+                <h2>The ADVAITA Story</h2>
+                
+                <p class="highlight">
+                    It started with a laptop, late nights, and way too much coffee.
+                </p>
+
+                <p>
+                    Our founders weren't satisfied with the status quo — the endless meetings, 
+                    corporate jargon, and cookie-cutter solutions that ignored what clients 
+                    actually needed. They wanted to build something different. Something real.
+                </p>
+
+                <p>
+                    So we did. ADVAITA became the place where creativity meets technology, 
+                    where "impossible" is just another challenge to overcome, and where every 
+                    project is an opportunity to push boundaries.
+                </p>
+
+                <p class="highlight">
+                    Today, we're a team of dreamers, builders, and problem-solvers who wake up 
+                    excited to turn ideas into reality.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <div class="values-header">
+                <h2>What We Stand For</h2>
+                <p>The principles that drive everything we do</p>
+            </div>
+
+            <div class="values-list">
+                <div class="value-item">
+                    <div class="value-number">01</div>
+                    <div class="value-content">
+                        <h3>Obsessed with Quality</h3>
+                        <p>
+                            Good enough? Not in our vocabulary. We're perfectionists who sweat the 
+                            small stuff because we know it's the details that separate great from mediocre. 
+                            Every line of code, every pixel, every interaction — it all matters.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-number">02</div>
+                    <div class="value-content">
+                        <h3>Radically Transparent</h3>
+                        <p>
+                            No smoke and mirrors. No corporate speak. We tell you what's working, 
+                            what's not, and why. You'll always know exactly where your project stands, 
+                            what we're doing, and what comes next. Honesty builds trust, and trust 
+                            builds great partnerships.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-number">03</div>
+                    <div class="value-content">
+                        <h3>Relentlessly Innovative</h3>
+                        <p>
+                            We don't follow trends — we create them. While others play it safe, 
+                            we're exploring new technologies, experimenting with bold ideas, and 
+                            finding better ways to solve old problems. Innovation isn't a buzzword 
+                            for us; it's our DNA.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-number">04</div>
+                    <div class="value-content">
+                        <h3>Your Success = Our Success</h3>
+                        <p>
+                            When you win, we celebrate. When you face challenges, we're in the trenches 
+                            with you. We're not vendors delivering a product and disappearing — we're 
+                            partners invested in your long-term success. Your goals become our mission.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-number">05</div>
+                    <div class="value-content">
+                        <h3>Move Fast, Break Nothing</h3>
+                        <p>
+                            Speed matters, but not at the cost of quality. We've mastered the art of 
+                            rapid development without cutting corners. Agile methodologies, automated 
+                            testing, continuous integration — we use every tool to deliver fast AND right.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2>Built by Passionate Humans</h2>
+            <p class="team-description">
+                We're developers, designers, strategists, and dreamers who love what we do. 
+                Our team brings together diverse talents, perspectives, and a shared commitment 
+                to excellence.
+            </p>
+
+            <div class="team-stats">
+                <div class="team-stat">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Expert Engineers</div>
+                </div>
+                <div class="team-stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="team-stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="team-stat">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Build Something Amazing?</h2>
+            <p>
+                Let's turn your vision into reality. Whether you have a detailed plan or just 
+                a napkin sketch, we're here to help.
+            </p>
+            <div class="cta-buttons">
+                <button class="cta-btn-primary" onclick="window.location.href='get-started.html'">
+                    Start Your Project
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 10H16M16 10L10 4M16 10L10 16"/>
+                    </svg>
+                </button>
+                <button class="cta-btn-outline" onclick="window.location.href='schedule-call.html'">
+                    Schedule a Call
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

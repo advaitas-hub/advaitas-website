@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Call - ADVAITA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Space+Mono:wght@400;700&family=Signika:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .schedule-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 120px 20px 80px;
+        }
+
+        .schedule-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .schedule-info {
+            position: sticky;
+            top: 120px;
+        }
+
+        .schedule-info h1 {
+            font-size: 48px;
+            color: #0a0f1e;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .schedule-info .gradient-text {
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .schedule-info p {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            padding: 24px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: start;
+            gap: 16px;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+        }
+
+        .info-content h3 {
+            font-size: 18px;
+            color: #0a0f1e;
+            margin-bottom: 6px;
+        }
+
+        .info-content p {
+            font-size: 14px;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .schedule-form-container {
+            background: white;
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h2 {
+            font-size: 32px;
+            color: #0a0f1e;
+            margin-bottom: 12px;
+        }
+
+        .form-header p {
+            font-size: 16px;
+            color: #64748b;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #0a0f1e;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            color: #0a0f1e;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0891b2;
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .time-slot {
+            padding: 12px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .time-slot:hover {
+            border-color: #0891b2;
+            background: rgba(8, 145, 178, 0.05);
+        }
+
+        .time-slot.selected {
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            color: white;
+            border-color: transparent;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+        }
+
+        .success-message {
+            display: none;
+            padding: 20px;
+            background: #10b981;
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .schedule-container {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-info {
+                position: static;
+            }
+
+            .schedule-info h1 {
+                font-size: 36px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .time-slots {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .schedule-form-container {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-glow"></div>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Generated_image_1-removebg-preview.png" alt="ADVAITA Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link animated-link" data-text="Home">Home</a></li>
+                <li><a href="index.html#services" class="nav-link animated-link" data-text="Services">Services</a></li>
+                <li><a href="index.html#about" class="nav-link animated-link" data-text="About">About</a></li>
+                <li><a href="portfolio.html" class="nav-link animated-link" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact" class="nav-link animated-link" data-text="Contact">Contact</a></li>
+                <li><button class="liquid-metal-btn" onclick="window.location.href='get-started.html'">Get Started</button></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Schedule Section -->
+    <section class="schedule-section">
+        <div class="schedule-container">
+            <!-- Left Info -->
+            <div class="schedule-info">
+                <h1>Let's Talk About Your <span class="gradient-text">Next Project</span></h1>
+                <p>
+                    Book a free 30-minute consultation with our team. We'll discuss your goals, 
+                    challenges, and how we can help bring your vision to life.
+                </p>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>30-Minute Session</h3>
+                            <p>Focused discussion about your project needs and goals</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Expert Guidance</h3>
+                            <p>Get insights from experienced developers and architects</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>No Commitment</h3>
+                            <p>Free consultation with no obligations attached</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Custom Proposal</h3>
+                            <p>Receive a tailored proposal based on our discussion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form -->
+            <div class="schedule-form-container">
+                <div class="form-header">
+                    <h2>Schedule Your Call</h2>
+                    <p>Fill in your details and pick a time that works for you</p>
+                </div>
+
+                <div id="successMessage" class="success-message">
+                    ✓ Your call has been scheduled! We'll send you a confirmation email shortly.
+                </div>
+
+                <form id="scheduleForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Time Slot *</label>
+                        <div class="time-slots">
+                            <div class="time-slot" data-time="09:00">9:00 AM</div>
+                            <div class="time-slot" data-time="10:00">10:00 AM</div>
+                            <div class="time-slot" data-time="11:00">11:00 AM</div>
+                            <div class="time-slot" data-time="12:00">12:00 PM</div>
+                            <div class="time-slot" data-time="14:00">2:00 PM</div>
+                            <div class="time-slot" data-time="15:00">3:00 PM</div>
+                            <div class="time-slot" data-time="16:00">4:00 PM</div>
+                            <div class="time-slot" data-time="17:00">5:00 PM</div>
+                            <div class="time-slot" data-time="18:00">6:00 PM</div>
+                        </div>
+                        <input type="hidden" id="timeSlot" name="timeSlot" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">What would you like to discuss? *</label>
+                        <select id="topic" name="topic" required>
+                            <option value="">Select a topic</option>
+                            <option value="new-project">New Project Discussion</option>
+                            <option value="web-dev">Web Development</option>
+                            <option value="mobile-app">Mobile App Development</option>
+                            <option value="consulting">Technical Consulting</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional Notes</label>
+                        <textarea id="message" name="message" placeholder="Tell us briefly about what you'd like to discuss..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Confirm Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        // Time slot selection
+        const timeSlots = document.querySelectorAll('.time-slot');
+        const timeSlotInput = document.getElementById('timeSlot');
+
+        timeSlots.forEach(slot => {
+            slot.addEventListener('click', () => {
+                timeSlots.forEach(s => s.classList.remove('selected'));
+                slot.classList.add('selected');
+                timeSlotInput.value = slot.getAttribute('data-time');
+            });
+        });
+
+        // Set minimum date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        // Form submission
+        document.getElementById('scheduleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!timeSlotInput.value) {
+                alert('Please select a time slot');
+                return;
+            }
+
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                this.reset();
+                timeSlots.forEach(s => s.classList.remove('selected'));
+                successMessage.style.display = 'none';
+            }, 3000);
+
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    </script>
+</body>
+</html>
