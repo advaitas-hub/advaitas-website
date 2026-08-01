@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion, Variants } from "framer-motion";
+import { AnimatePresence, motion, Variants, Transition } from "framer-motion";
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
 
@@ -7,11 +7,7 @@ type RandomLetterSwapProps = {
   label: string;
   className?: string;
   staggerDuration?: number;
-  transition?: {
-    duration?: number;
-    type?: string;
-    [key: string]: any;
-  };
+  transition?: Transition;
   onClick?: () => void;
 };
 
