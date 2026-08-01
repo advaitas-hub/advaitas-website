@@ -1,5 +1,8 @@
 {
   "name": "advaitas-website",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "scripts": {
+    "dev": "npx -y serve -l 3000 ."
+  }
 }
