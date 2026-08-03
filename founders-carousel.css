@@ -1,0 +1,245 @@
+/* ============================================
+   FOUNDERS CIRCULAR CAROUSEL STYLES
+   ============================================ */
+
+.founders-carousel-section {
+    width: 100%;
+    padding: 100px 20px;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.founders-section-heading {
+    font-family: "Cinzel", serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: #0a0f1e;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.founders-carousel-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Image Container */
+.founders-images-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    perspective: 1200px;
+}
+
+.founder-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 420px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.4, 2, 0.3, 1);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Adjust first card image specifically */
+.founder-image[data-index="0"] {
+    object-fit: scale scale-down; /* Options: cover, contain, fill, scale-down */
+    object-position: top; /* Options: center, top, bottom, left, right */
+    /* You can also use percentages like: object-position: center 30%; */
+}
+
+/* Content Container */
+.founders-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    position: relative;
+}
+
+.founder-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.founder-info.active {
+    opacity: 1;
+    position: relative;
+}
+
+.founder-name {
+    font-family: "Yuyu Short", sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: #0a0f1e;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.founder-designation {
+    font-size: 20px;
+    color: #0891b2;
+    margin-bottom: 32px;
+    font-weight: 600;
+}
+
+.founder-quote {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 0;
+}
+
+.founder-quote .word {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(5px);
+    animation: wordFadeIn 0.22s ease-in-out forwards;
+}
+
+@keyframes wordFadeIn {
+    to {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateY(0);
+    }
+}
+
+/* Navigation Arrows */
+.founders-arrow-buttons {
+    display: flex;
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.founder-arrow-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #0891b2;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3);
+}
+
+.founder-arrow-button:hover {
+    background: #22d3ee;
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(34, 211, 238, 0.5);
+}
+
+.founder-arrow-button:active {
+    transform: scale(0.95);
+}
+
+.founder-arrow-button svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+/* Progress Dots */
+.founders-dots {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.founder-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(34, 211, 238, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.founder-dot.active {
+    width: 40px;
+    border-radius: 6px;
+    background: #22d3ee;
+}
+
+.founder-dot:hover {
+    background: rgba(34, 211, 238, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .founders-carousel-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .founders-images-container {
+        height: 400px;
+    }
+
+    .founder-name {
+        font-size: 32px;
+    }
+
+    .founder-designation {
+        font-size: 18px;
+    }
+
+    .founder-quote {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .founders-carousel-section {
+        padding: 60px 20px;
+    }
+
+    .founders-images-container {
+        height: 350px;
+    }
+
+    .founder-image {
+        max-width: 320px;
+    }
+
+    .founder-name {
+        font-size: 28px;
+    }
+
+    .founder-designation {
+        font-size: 16px;
+    }
+
+    .founder-quote {
+        font-size: 16px;
+    }
+
+    .founder-arrow-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .founder-arrow-button svg {
+        width: 20px;
+        height: 20px;
+    }
+}

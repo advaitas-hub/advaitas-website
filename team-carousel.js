@@ -9,45 +9,52 @@
     const teamMembers = [
         {
             id: 1,
-            name: "Rajesh Kumar",
-            role: "CEO & Founder - Visionary leader with 15+ years in enterprise software solutions.",
-            tag: "CEO"
+            name: "Aditya Maurya",
+            role: "Peon & Founder - Managing daily operations and building the foundation.",
+            tag: "Peon",
+            image: "aditya-maurya.jpg"
         },
         {
             id: 2,
-            name: "Priya Sharma",
-            role: "CTO & Co-Founder - Tech innovator specializing in scalable architecture and AI.",
-            tag: "CTO"
+            name: "Aditya B Mali",
+            role: "MD & Founder - Marketing Head driving brand strategy and innovation.",
+            tag: "MD",
+            image: "aditya-b-mali.png"
         },
         {
             id: 3,
-            name: "Amit Patel",
-            role: "VP Engineering - Building high-performance teams and cutting-edge products.",
-            tag: "VP Eng"
+            name: "Ayush Singh",
+            role: "Founder & Product Manager - Building innovative products and leading development.",
+            tag: "Product",
+            image: "ayush-singh.png"
         },
         {
             id: 4,
-            name: "Neha Singh",
-            role: "Head of Design - Creating beautiful, user-centric experiences that delight.",
-            tag: "Design"
+            name: "Abhinav Sharma",
+            role: "Chief Operating Officer & Founder - Overseeing operations and strategic execution.",
+            tag: "COO",
+            image: "abhinav-sharma.png"
         },
         {
             id: 5,
-            name: "Vikram Reddy",
-            role: "Head of Product - Driving product strategy and innovation across platforms.",
-            tag: "Product"
+            name: "Ayush Kumar",
+            role: "Chief Technical Officer & Founder - Driving technical innovation and architecture.",
+            tag: "CTO",
+            image: "kumar.png"
         },
         {
             id: 6,
-            name: "Ananya Gupta",
-            role: "Head of Operations - Ensuring excellence in delivery and client success.",
-            tag: "Operations"
+            name: "Disha",
+            role: "Team Lead & Founder - Leading teams and ensuring project excellence.",
+            tag: "Team Lead",
+            image: "team/disha.jpg"
         },
         {
             id: 7,
-            name: "Karan Verma",
-            role: "Head of Marketing - Building brand presence and connecting with audiences globally.",
-            tag: "Marketing"
+            name: "Aishu Parekar",
+            role: "Designer & Founder - Crafting beautiful user experiences and brand identity.",
+            tag: "Designer",
+            image: "aishu-parekar.png"
         }
     ];
 
@@ -85,9 +92,11 @@
 
         const distance = Math.abs(adjustedOffset);
         const maxDistance = half + 1;
-        const scale = Math.max(0, 1 - (distance / maxDistance) * 0.3);
-        const opacity = Math.max(0.3, 1 - (distance / maxDistance) * 0.7);
-        const zIndex = CONFIG.VISIBLE_COUNT - distance;
+        const scale = Math.max(0.3, 1 - (distance / maxDistance) * 0.5);
+        const opacity = Math.max(0.2, 1 - (distance / maxDistance) * 0.8);
+        
+        // Improved z-index calculation - center card gets highest, decreases outward
+        const zIndex = adjustedOffset === 0 ? 100 : (CONFIG.VISIBLE_COUNT * 2 - distance);
 
         return { x, y, scale, opacity, zIndex };
     }
@@ -100,6 +109,9 @@
         card.className = 'carousel-card';
         card.dataset.index = index;
         card.innerHTML = `
+            <div class="card-image-container">
+                <img src="${member.image}" alt="${member.name}" class="card-image" onerror="this.src='https://via.placeholder.com/150/0891b2/ffffff?text=${member.name.charAt(0)}'">
+            </div>
             ${member.tag ? `<span class="card-tag">${member.tag}</span>` : ''}
             <div class="card-content">
                 <h3 class="card-title">${member.name}</h3>
