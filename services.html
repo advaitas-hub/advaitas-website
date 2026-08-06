@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVAITA - Services</title>
+    <link rel="stylesheet" href="styles.css?v=20240801">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Services Page Specific Styles */
+        .services-page {
+            padding-top: 80px;
+        }
+
+        /* Hero Section */
+        .services-hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            overflow: hidden;
+        }
+
+        .services-hero-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .services-hero-background .gradient-blur {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+        }
+
+        .services-hero-background .gradient-blur-1 {
+            width: 600px;
+            height: 600px;
+            background: rgba(8, 145, 178, 0.1);
+            top: -200px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .services-hero-background .gradient-blur-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(34, 211, 238, 0.1);
+            bottom: -100px;
+            left: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .services-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .services-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            color: white;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .services-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: #0a0f1e;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease 0.1s forwards;
+        }
+
+        .services-hero-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease 0.2s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .services-hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease 0.3s forwards;
+        }
+
+        .services-btn-primary {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .services-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.4);
+        }
+
+        .services-btn-secondary {
+            padding: 16px 32px;
+            background: transparent;
+            color: #0a0f1e;
+            border: 2px solid #0891b2;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .services-btn-secondary:hover {
+            background: rgba(8, 145, 178, 0.1);
+            transform: translateY(-2px);
+        }
+
+
+        /* What We Do Section */
+        .what-we-do {
+            padding: 100px 20px;
+            background: #f8fafc;
+            position: relative;
+        }
+
+        .what-we-do-background {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .what-we-do-background .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+        }
+
+        .what-we-do-background .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-blue);
+            top: 20%;
+            left: -10%;
+        }
+
+        .what-we-do-background .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--light-blue);
+            bottom: 20%;
+            right: -10%;
+        }
+
+        .what-we-do-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: #0a0f1e;
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            transition: opacity 0.4s ease, transform 0.4s ease, background 0.1s ease, border-color 0.1s ease, box-shadow 0.1s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            will-change: opacity, transform;
+        }
+
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            background: white;
+            border-color: #0891b2;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(8, 145, 178, 0.15);
+            transition: background 0.05s ease-out, border-color 0.05s ease-out, box-shadow 0.05s ease-out, transform 0.05s ease-out;
+            will-change: transform;
+        }
+
+        .service-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            color: #0891b2;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .service-card-link:hover {
+            text-decoration: underline;
+        }
+
+        .service-card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .service-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .service-card-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0a0f1e;
+            margin-bottom: 12px;
+        }
+
+        .service-card-description {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 20px;
+            background: white;
+            position: relative;
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-timeline {
+            position: relative;
+            margin-top: 80px;
+            padding-left: 220px;
+        }
+
+        .process-vertical-line {
+            position: absolute;
+            left: 150px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+            transform: translateX(-50%);
+        }
+
+        .process-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, #0891b2, #22d3ee);
+            transition: height 0.1s ease-out;
+        }
+
+        .process-step {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .process-step.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .process-ghost-number {
+            position: absolute;
+            left: -220px;
+            top: -20px;
+            font-family: var(--font-display);
+            font-size: 110px;
+            font-weight: 900;
+            color: rgba(8, 145, 178, 0.08);
+            line-height: 1;
+            transition: color 0.4s ease;
+            pointer-events: none;
+            user-select: none;
+            width: 120px;
+            text-align: left;
+        }
+
+        .process-step.active .process-ghost-number {
+            color: rgba(8, 145, 178, 0.2);
+        }
+
+        .process-marker {
+            position: absolute;
+            left: -70px;
+            top: 36px;
+            width: 14px;
+            height: 14px;
+            background: white;
+            border: 3px solid #cbd5e1;
+            border-radius: 50%;
+            box-sizing: border-box;
+            transform: translate(-50%, -50%);
+            transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .process-step.active .process-marker,
+        .process-step:hover .process-marker {
+            border-color: #0891b2;
+            background: #0891b2;
+            box-shadow: 0 0 0 6px rgba(8, 145, 178, 0.18);
+            transform: translate(-50%, -50%) scale(1.25);
+        }
+
+        .process-step-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: default;
+            width: 100%;
+        }
+
+        .process-step:hover .process-step-content {
+            transform: translateX(8px);
+        }
+
+        .process-step:hover .process-ghost-number {
+            color: rgba(8, 145, 178, 0.25);
+        }
+
+        .process-step-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .process-step-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .process-step-text {
+            flex: 1;
+        }
+
+        .process-step-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(8, 145, 178, 0.1);
+            color: #0891b2;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+
+        .process-step-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0a0f1e;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .process-step-description {
+            font-size: 1rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .process-timeline {
+                padding-left: 160px;
+            }
+
+            .process-vertical-line {
+                left: 110px;
+            }
+
+            .process-ghost-number {
+                left: -160px;
+                font-size: 75px;
+                top: -10px;
+                width: 90px;
+            }
+
+            .process-marker {
+                left: -50px;
+                top: 28px;
+            }
+
+            .process-step-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .process-step-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .process-step-icon svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .process-step-title {
+                font-size: 1.25rem;
+            }
+
+            .process-step-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .process-timeline {
+                padding-left: 110px;
+            }
+
+            .process-vertical-line {
+                left: 75px;
+            }
+
+            .process-ghost-number {
+                left: -110px;
+                font-size: 55px;
+                top: -5px;
+                width: 65px;
+            }
+
+            .process-marker {
+                left: -35px;
+                top: 24px;
+            }
+        }
+
+/* Why Work With Us Section */
+.why-us-section {
+    padding: 100px 20px;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.why-us-scroll-container {
+    margin-top: 60px;
+    padding: 20px 0;
+    mask: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+    );
+    -webkit-mask: linear-gradient(
+        90deg,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+    );
+}
+
+.why-us-scroll-container:hover .why-us-infinite-scroll {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.why-us-infinite-scroll {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: scroll-right 30s linear infinite;
+}
+
+.why-us-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 32px;
+    flex-shrink: 0;
+    width: 320px;
+    transition: transform 0.3s ease, filter 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, margin 0.3s ease;
+    margin: 0;
+}
+
+.why-us-card:hover {
+    transform: scale(1.05);
+    filter: brightness(1.02);
+    border-color: #0891b2;
+    box-shadow: 0 20px 40px rgba(8, 145, 178, 0.15);
+    margin: 0 10px;
+    z-index: 10;
+}
+
+.why-us-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #0891b2, #22d3ee);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.why-us-icon svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+.why-us-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0a0f1e;
+    margin-bottom: 12px;
+}
+
+.why-us-description {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .why-us-card {
+        width: 280px;
+        padding: 24px;
+    }
+
+    .why-us-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .why-us-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .why-us-title {
+        font-size: 1.1rem;
+    }
+
+    .why-us-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 100px 20px;
+    background: white;
+}
+
+.faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.faq-image-wrapper {
+    flex-shrink: 0;
+    max-width: 500px;
+    width: 100%;
+}
+
+.faq-image {
+    width: 100%;
+    height: 600px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.faq-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.faq-label {
+    color: #0891b2;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.faq-heading {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0a0f1e;
+    margin-bottom: 12px;
+}
+
+.faq-subtitle {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 20px 0;
+    cursor: pointer;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.faq-question-text {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0a0f1e;
+}
+
+.faq-toggle {
+    flex-shrink: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: 16px;
+}
+
+.faq-answer-text {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+    .faq-layout {
+        flex-direction: row;
+    }
+}
+
+/* Closing CTA Section */
+.closing-cta {
+    padding: 100px 20px;
+    background: #f8fafc;
+    position: relative;
+    text-align: center;
+}
+
+.closing-cta-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.closing-cta-background .gradient-blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.2;
+}
+
+.closing-cta-background .gradient-blur-1 {
+    width: 600px;
+    height: 600px;
+    background: rgba(8, 145, 178, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.closing-cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.closing-cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #0a0f1e;
+    margin-bottom: 16px;
+}
+
+.closing-cta-subtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.closing-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #0891b2, #22d3ee);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.closing-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(8, 145, 178, 0.4);
+}
+
+/* Footer */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .services-hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .services-trust-bar {
+        gap: 24px;
+    }
+
+    .trust-number {
+        font-size: 2rem;
+    }
+
+    .pillar-header {
+        text-align: center;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .why-us-card {
+        padding: 24px;
+    }
+}
+</style>
+</head>
+<body class="services-page">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-glow"></div>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Generated_image_1-removebg-preview.png" alt="ADVAITA Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link animated-link" data-text="Home">Home</a></li>
+                <li><a href="services.html" class="nav-link animated-link" data-text="Services">Services</a></li>
+                <li><a href="about.html" class="nav-link animated-link" data-text="About">About</a></li>
+                <li><a href="portfolio.html" class="nav-link animated-link" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact" class="nav-link animated-link" data-text="Contact">Contact</a></li>
+                <li><button class="liquid-metal-btn" onclick="window.location.href='get-started.html'">Get Started</button></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="services-hero-background">
+            <div class="gradient-blur gradient-blur-1"></div>
+            <div class="gradient-blur gradient-blur-2"></div>
+        </div>
+        <div class="services-hero-content">
+            <div class="services-hero-eyebrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                <span>DESIGN • BUILD • SCALE</span>
+            </div>
+            <h1 class="services-hero-title">Digital products that look sharp, work flawlessly, and grow with your business</h1>
+            <p class="services-hero-subtitle">We design and build websites, software, and mobile apps for founders and businesses who want more than "good enough." From first sketch to shipped product — one team, no handoffs.</p>
+            <div class="services-hero-buttons">
+                <a href="schedule-call.html" class="services-btn-primary">
+                    <span>Book a Free Call</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                </a>
+                <a href="portfolio.html" class="services-btn-secondary">See Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="what-we-do">
+        <div class="what-we-do-background">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+        </div>
+        <div class="what-we-do-container">
+            <div class="section-header">
+                <h2 class="section-title">What We Do</h2>
+                <p class="section-description">Design that converts, Development that scales — all under one roof</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                            <path d="M2 2l7.586 7.586"/>
+                            <circle cx="11" cy="11" r="2"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">UI/UX Design</h4>
+                    <p class="service-card-description">Confusing product losing users at every step? We map the journey, remove friction, and design interfaces people actually enjoy using.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">Web Design</h4>
+                    <p class="service-card-description">Your site should be your best salesperson. We design custom, brand-driven websites built to hold attention and drive action — not another generic layout.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">Landing Page Design</h4>
+                    <p class="service-card-description">Running ads or a launch and need conversions fast? We design focused, high-converting landing pages built around one goal: getting the click.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">Mobile App Design</h4>
+                    <p class="service-card-description">Great apps feel invisible. We design intuitive iOS/Android interfaces that get users to their "aha moment" in seconds, not screens.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"/>
+                            <polyline points="1 20 1 14 7 14"/>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">Web Redesign</h4>
+                    <p class="service-card-description">Outgrown your current site? We modernize the look, fix the UX gaps, and rebuild the experience without losing what already works (or your SEO).</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">Branding</h4>
+                    <p class="service-card-description">Look like a stack of freelancers instead of a real company? We build the visual identity — logo, colors, type, voice — that makes you memorable and credible.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">Web Development</h4>
+                    <p class="service-card-description">Beautiful design means nothing if the site is slow or breaks on mobile. We build fast, responsive, SEO-ready websites using modern frameworks — clean code, zero bloat.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">Software Development</h4>
+                    <p class="service-card-description">Off-the-shelf tools don't fit how you actually work? We build custom software tailored to your exact workflow — and built to scale as you grow.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <h4 class="service-card-title">Mobile App Development</h4>
+                    <p class="service-card-description">Need a real app, not a wrapped website? We build native and cross-platform iOS/Android apps that perform smoothly and ship on schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <div class="section-header">
+                <h2 class="section-title">Our Process</h2>
+                <p class="section-description">Six steps from discovery to launch — clear, collaborative, and designed for results</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-vertical-line">
+                    <div class="process-line-fill"></div>
+                </div>
+                <div class="process-step">
+                    <div class="process-ghost-number">01</div>
+                    <div class="process-marker"></div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </div>
+                        <div class="process-step-text">
+                            <span class="process-step-badge">Free</span>
+                            <h4 class="process-step-title">Discovery & Planning</h4>
+                            <p class="process-step-description">We learn your business, users, and goals before touching a single pixel.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-ghost-number">02</div>
+                    <div class="process-marker"></div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <div class="process-step-text">
+                            <h4 class="process-step-title">Wireframes & Concepts</h4>
+                            <p class="process-step-description">Structure and flow mapped out before visual design begins — no surprises later.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-ghost-number">03</div>
+                    <div class="process-marker"></div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                                <path d="M2 2l7.586 7.586"/>
+                                <circle cx="11" cy="11" r="2"/>
+                            </svg>
+                        </div>
+                        <div class="process-step-text">
+                            <h4 class="process-step-title">UI Design & Visual Refinement</h4>
+                            <p class="process-step-description">Custom visual design with your feedback built into every round.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-ghost-number">04</div>
+                    <div class="process-marker"></div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <div class="process-step-text">
+                            <h4 class="process-step-title">Development & Integration</h4>
+                            <p class="process-step-description">Clean, scalable code — connected to whatever tools/CMS you need.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-ghost-number">05</div>
+                    <div class="process-marker"></div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <div class="process-step-text">
+                            <h4 class="process-step-title">QA & Testing</h4>
+                            <p class="process-step-description">Cross-browser, cross-device, performance and security checks before anything ships.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-ghost-number">06</div>
+                    <div class="process-marker"></div>
+                    <div class="process-step-content">
+                        <div class="process-step-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+                            </svg>
+                        </div>
+                        <div class="process-step-text">
+                            <h4 class="process-step-title">Launch & Post-Launch Support</h4>
+                            <p class="process-step-description">We don't disappear at launch. Bug fixes, updates, and scaling support included.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Us Section -->
+    <section class="why-us-section">
+        <div class="why-us-container">
+            <div class="section-header">
+                <h2 class="section-title">Why Work With Us</h2>
+                <p class="section-description">We're not just another agency — we're your partners in building something exceptional</p>
+            </div>
+            <div class="why-us-scroll-container">
+                <div class="why-us-infinite-scroll">
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">One team, start to finish</h4>
+                        <p class="why-us-description">Design and development under one roof, no agency handoffs</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">Founder-level attention</h4>
+                        <p class="why-us-description">Small enough that you talk to the people actually building it</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">Modern stack, built to scale</h4>
+                        <p class="why-us-description">No bloated legacy code or platforms you'll outgrow in a year</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="16" x2="12" y2="12"/>
+                                <line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">Transparent process</h4>
+                        <p class="why-us-description">Clear milestones, regular updates, no black-box development</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">Support that continues after launch</h4>
+                        <p class="why-us-description">Your product keeps evolving, so do we</p>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">One team, start to finish</h4>
+                        <p class="why-us-description">Design and development under one roof, no agency handoffs</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">Founder-level attention</h4>
+                        <p class="why-us-description">Small enough that you talk to the people actually building it</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">Modern stack, built to scale</h4>
+                        <p class="why-us-description">No bloated legacy code or platforms you'll outgrow in a year</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="16" x2="12" y2="12"/>
+                                <line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">Transparent process</h4>
+                        <p class="why-us-description">Clear milestones, regular updates, no black-box development</p>
+                    </div>
+                    <div class="why-us-card">
+                        <div class="why-us-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h4 class="why-us-title">Support that continues after launch</h4>
+                        <p class="why-us-description">Your product keeps evolving, so do we</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-layout">
+                <div class="faq-image-wrapper">
+                    <img class="faq-image" src="image faq.png" alt="FAQ illustration" loading="lazy" decoding="async" />
+                </div>
+                <div class="faq-content">
+                    <p class="faq-label">FAQ's</p>
+                    <h1 class="faq-heading">Looking for answer?</h1>
+                    <p class="faq-subtitle">Ship Beautiful Frontends Without the Overhead — Customizable, Scalable and Developer-Friendly UI Components.</p>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 class="faq-question-text">How long does a project take?</h3>
+                                <div class="faq-toggle">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="#1D293D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="faq-answer">
+                                <span class="faq-answer-text">Depends on scope — a landing page can ship in 1-2 weeks, a full product build typically takes 6-12 weeks. You'll get a clear timeline after our discovery call.</span>
+                            </p>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 class="faq-question-text">Do you help if we don't have designs or content yet?</h3>
+                                <div class="faq-toggle">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="#1D293D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="faq-answer">
+                                <span class="faq-answer-text">Yes — we guide you through structure, messaging, and visual direction from scratch if needed.</span>
+                            </p>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 class="faq-question-text">Will I be able to update the site myself after launch?</h3>
+                                <div class="faq-toggle">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="#1D293D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="faq-answer">
+                                <span class="faq-answer-text">Yes, we build on CMS platforms that let your team update content without touching code.</span>
+                            </p>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 class="faq-question-text">Do you offer ongoing support after launch?</h3>
+                                <div class="faq-toggle">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="#1D293D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="faq-answer">
+                                <span class="faq-answer-text">Yes — bug fixes, small updates, and extended support plans are available.</span>
+                            </p>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 class="faq-question-text">What's the typical cost?</h3>
+                                <div class="faq-toggle">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2" stroke="#1D293D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <p class="faq-answer">
+                                <span class="faq-answer-text">Depends on scope and complexity. After a short call, we send a clear proposal — no vague quotes.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA Section -->
+    <section class="closing-cta">
+        <div class="closing-cta-background">
+            <div class="gradient-blur gradient-blur-1"></div>
+        </div>
+        <div class="closing-cta-content">
+            <h2 class="closing-cta-title">Have a project in mind?</h2>
+            <p class="closing-cta-subtitle">Let's talk about what you're building — no pressure, no sales script, just a real conversation about what it'll take.</p>
+            <a href="schedule-call.html" class="closing-cta-button">
+                <span>Book a Free 30-Min Call</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.05,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards with stagger
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.05}s`;
+            observer.observe(card);
+        });
+
+        // Observe process steps with stagger
+        document.querySelectorAll('.process-step').forEach((step, index) => {
+            step.style.transitionDelay = `${index * 0.08}s`;
+            observer.observe(step);
+        });
+
+        // Process section scroll animations
+        const processSection = document.querySelector('.process-section');
+        const processLineFill = document.querySelector('.process-line-fill');
+        const processSteps = document.querySelectorAll('.process-step');
+
+        if (processSection && processLineFill) {
+            // Scroll-based line fill animation
+            window.addEventListener('scroll', () => {
+                const sectionTop = processSection.offsetTop;
+                const sectionHeight = processSection.offsetHeight;
+                const scrollPos = window.scrollY + window.innerHeight * 0.6;
+                const progress = Math.min(Math.max((scrollPos - sectionTop) / sectionHeight, 0), 1);
+                processLineFill.style.height = `${progress * 100}%`;
+            });
+
+            // Active state for process steps (color transitions)
+            const processObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            processSteps.forEach(step => processObserver.observe(step));
+        }
+
+        // Observe why-us cards with stagger
+        // Disabled for infinite scroll layout
+        // document.querySelectorAll('.why-us-card').forEach((card, index) => {
+        //     card.style.transitionDelay = `${index * 0.08}s`;
+        //     observer.observe(card);
+        // });
+
+        // Animated Counter for Trust Bar
+        const trustNumbers = document.querySelectorAll('.trust-number[data-count]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const count = parseInt(target.getAttribute('data-count'));
+                    animateCounter(target, count);
+                    counterObserver.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        trustNumbers.forEach(num => counterObserver.observe(num));
+
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 ADVAITA. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

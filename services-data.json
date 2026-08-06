@@ -1,0 +1,307 @@
+{
+  "services": {
+    "ui-ux-design": {
+      "name": "UI/UX Design",
+      "slug": "ui-ux-design",
+      "headline": "Interfaces people don't have to think about",
+      "problem": "Confusing flows quietly bleed users at every step.",
+      "approach": [
+        "User research",
+        "User flows & wireframes",
+        "High-fidelity UI",
+        "Usability testing"
+      ],
+      "included": [
+        "User flow maps",
+        "Wireframes",
+        "High-fidelity screens",
+        "Interactive prototype",
+        "Design system"
+      ],
+      "tools": ["Figma", "Sketch", "Adobe XD", "Principle", "Maze"],
+      "faq": [
+        {
+          "question": "Do you do user testing?",
+          "answer": "Yes, we conduct usability testing sessions with real users to validate design decisions and identify friction points."
+        },
+        {
+          "question": "What tools do you design in?",
+          "answer": "We primarily design in Figma, but can also work in Sketch or Adobe XD based on your team's preference."
+        },
+        {
+          "question": "How many revision rounds?",
+          "answer": "Typically 2-3 revision rounds for UI design, with additional iterations during wireframing to ensure we're aligned before visual design begins."
+        }
+      ]
+    },
+    "web-design": {
+      "name": "Web Design",
+      "slug": "web-design",
+      "headline": "A website that looks like your best competitor built it — because you did",
+      "problem": "Generic templates don't build trust. Visitors judge credibility in seconds.",
+      "approach": [
+        "Discovery & competitor audit",
+        "Wireframes",
+        "Custom UI design",
+        "Dev handoff"
+      ],
+      "included": [
+        "Custom homepage + inner pages",
+        "Responsive design",
+        "Style guide",
+        "SEO-ready structure",
+        "CMS setup"
+      ],
+      "tools": ["Figma", "Webflow", "Framer", "WordPress", "Shopify"],
+      "faq": [
+        {
+          "question": "How many pages?",
+          "answer": "Depends on your needs — typically 5-10 core pages for most businesses, with templates for additional pages."
+        },
+        {
+          "question": "Do you write the content too?",
+          "answer": "We can connect you with copywriters, or work with content you provide. We focus on design and structure."
+        },
+        {
+          "question": "Can I update it myself later?",
+          "answer": "Yes, we build on CMS platforms that let your team update content without touching code."
+        }
+      ]
+    },
+    "landing-page-design": {
+      "name": "Landing Page Design",
+      "slug": "landing-page-design",
+      "headline": "Built for one job: turning clicks into customers",
+      "problem": "Sending ad traffic to a generic homepage kills conversion rate.",
+      "approach": [
+        "Offer/goal definition",
+        "Copy & wireframe",
+        "High-conversion UI",
+        "A/B-test ready build"
+      ],
+      "included": [
+        "Single-goal page design",
+        "Mobile-optimized",
+        "Form/CTA integration",
+        "Analytics setup"
+      ],
+      "tools": ["Figma", "Unbounce", "Instapage", "Webflow", "Google Analytics"],
+      "faq": [
+        {
+          "question": "Can you write the copy?",
+          "answer": "We partner with conversion copywriters, or can work with copy you provide. The design is built around your messaging."
+        },
+        {
+          "question": "Do you set up A/B testing?",
+          "answer": "We design pages with A/B testing in mind and can set up basic variants, or integrate with your testing platform."
+        },
+        {
+          "question": "Turnaround time?",
+          "answer": "Typically 1-2 weeks for a focused landing page, faster if you have copy and assets ready."
+        }
+      ]
+    },
+    "mobile-app-design": {
+      "name": "Mobile App Design",
+      "slug": "mobile-app-design",
+      "headline": "App interfaces that feel obvious from screen one",
+      "problem": "Users abandon apps in the first session if onboarding is confusing.",
+      "approach": [
+        "User flow mapping",
+        "Wireframes",
+        "Visual UI design",
+        "Interactive prototype"
+      ],
+      "included": [
+        "Full UI screen set (iOS/Android)",
+        "Design system",
+        "Clickable prototype",
+        "Dev-ready assets"
+      ],
+      "tools": ["Figma", "Sketch", "Principle", "ProtoPie", "Flinto"],
+      "faq": [
+        {
+          "question": "iOS, Android or both?",
+          "answer": "We can design for iOS, Android, or both — often designing once with platform-specific adaptations."
+        },
+        {
+          "question": "Do you design onboarding flows?",
+          "answer": "Yes, onboarding is critical. We design complete user flows from first launch to core value delivery."
+        },
+        {
+          "question": "Handoff format for developers?",
+          "answer": "We provide organized Figma files with components, design tokens, and export-ready assets for smooth developer handoff."
+        }
+      ]
+    },
+    "web-redesign": {
+      "name": "Web Redesign",
+      "slug": "web-redesign",
+      "headline": "Same brand, real upgrade — without losing what already works",
+      "problem": "An outdated site quietly loses trust and search ranking.",
+      "approach": [
+        "Audit current site",
+        "Identify what to keep vs. rebuild",
+        "Redesign",
+        "Migrate (with SEO preserved)"
+      ],
+      "included": [
+        "Full site audit",
+        "New UI design",
+        "Content migration",
+        "301 redirects for SEO",
+        "Performance upgrade"
+      ],
+      "tools": ["Google Analytics", "SEMrush", "Figma", "WordPress", "Webflow"],
+      "faq": [
+        {
+          "question": "Will we lose our SEO rankings?",
+          "answer": "No — we implement proper 301 redirects, preserve URL structures where possible, and maintain on-page SEO elements."
+        },
+        {
+          "question": "Can we keep some existing pages?",
+          "answer": "Yes, we audit existing content and identify what to keep, update, or rebuild based on performance and alignment with new design."
+        },
+        {
+          "question": "How long does migration take?",
+          "answer": "Typically 4-8 weeks depending on site size and complexity. We plan migration carefully to minimize downtime."
+        }
+      ]
+    },
+    "branding": {
+      "name": "Branding",
+      "slug": "branding",
+      "headline": "A brand identity that makes you instantly recognizable",
+      "problem": "Inconsistent visuals across platforms make you look unprofessional.",
+      "approach": [
+        "Brand discovery",
+        "Logo & visual exploration",
+        "Identity system",
+        "Brand guidelines"
+      ],
+      "included": [
+        "Logo suite",
+        "Color palette",
+        "Typography system",
+        "Brand guidelines doc",
+        "Social/collateral templates"
+      ],
+      "tools": ["Illustrator", "Figma", "Adobe Fonts", "Coolors", "Brandfolder"],
+      "faq": [
+        {
+          "question": "Do you design business cards/social templates too?",
+          "answer": "Yes, we create templates for business cards, social media, presentations, and other collateral to ensure consistency."
+        },
+        {
+          "question": "How many logo concepts?",
+          "answer": "Typically 3-5 initial concepts, then refinement to 1-2 final directions with variations for different use cases."
+        },
+        {
+          "question": "Timeline?",
+          "answer": "Usually 3-4 weeks for a complete brand identity, from discovery to final brand guidelines delivery."
+        }
+      ]
+    },
+    "web-development": {
+      "name": "Web Development",
+      "slug": "web-development",
+      "headline": "From design file to live, fast, bug-free website",
+      "problem": "A beautiful design that's slow or breaks on mobile costs you customers.",
+      "approach": [
+        "Dev environment setup",
+        "Component build",
+        "CMS/API integration",
+        "QA & performance testing"
+      ],
+      "included": [
+        "Responsive front-end build",
+        "CMS integration",
+        "Speed optimization",
+        "Cross-browser testing",
+        "Deployment"
+      ],
+      "tools": ["React", "Next.js", "WordPress", "Webflow", "Vercel"],
+      "faq": [
+        {
+          "question": "What platforms do you build on?",
+          "answer": "We build on modern frameworks like Next.js/React for custom sites, or CMS platforms like WordPress and Webflow based on your needs."
+        },
+        {
+          "question": "Do you handle hosting?",
+          "answer": "We can recommend and set up hosting, or deploy to platforms like Vercel, Netlify, or your preferred infrastructure."
+        },
+        {
+          "question": "Post-launch bug fixes included?",
+          "answer": "Yes, we include a warranty period for bug fixes post-launch, with ongoing support options available."
+        }
+      ]
+    },
+    "software-development": {
+      "name": "Software Development",
+      "slug": "software-development",
+      "headline": "Software built around how your business actually works",
+      "problem": "Generic SaaS tools force you to bend your workflow to fit them.",
+      "approach": [
+        "Requirements & architecture",
+        "MVP build",
+        "Iteration & testing",
+        "Deployment & scaling support"
+      ],
+      "included": [
+        "Custom architecture",
+        "Core feature build",
+        "Database/API setup",
+        "Documentation",
+        "Deployment"
+      ],
+      "tools": ["Node.js", "Python", "PostgreSQL", "MongoDB", "AWS"],
+      "faq": [
+        {
+          "question": "Do you build the full stack?",
+          "answer": "Yes, we handle full-stack development — frontend, backend, database, and API design as needed for your project."
+        },
+        {
+          "question": "How is pricing scoped?",
+          "answer": "We scope based on feature requirements and complexity. After discovery, we provide a detailed proposal with clear milestones."
+        },
+        {
+          "question": "Do you provide ongoing dev support?",
+          "answer": "Yes, we offer ongoing development support for feature additions, maintenance, and scaling as your product grows."
+        }
+      ]
+    },
+    "mobile-app-development": {
+      "name": "Mobile App Development",
+      "slug": "mobile-app-development",
+      "headline": "Native-feeling apps, built once, shipped everywhere",
+      "problem": "A slow, buggy app gets uninstalled — and rated publicly.",
+      "approach": [
+        "Architecture planning",
+        "Core build",
+        "API/backend integration",
+        "Testing & store submission"
+      ],
+      "included": [
+        "Cross-platform or native build",
+        "Backend/API integration",
+        "QA testing",
+        "App Store/Play Store submission"
+      ],
+      "tools": ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
+      "faq": [
+        {
+          "question": "Native or cross-platform?",
+          "answer": "We recommend based on your needs — React Native/Flutter for cross-platform efficiency, or native (Swift/Kotlin) for maximum performance."
+        },
+        {
+          "question": "Do you handle app store submission?",
+          "answer": "Yes, we handle the technical submission process and guide you through App Store and Play Store requirements."
+        },
+        {
+          "question": "Post-launch support?",
+          "answer": "Yes, we provide post-launch support for bug fixes, updates, and feature additions to keep your app running smoothly."
+        }
+      ]
+    }
+  }
+}

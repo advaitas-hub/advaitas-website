@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Fredoka:wght@600;700&family=Griffy&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Shadows+Into+Light&family=Signika:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         .about-page-hero {
             min-height: 100vh;
@@ -312,21 +312,36 @@
         }
 
         .cta-btn-outline {
-            padding: 18px 40px;
-            background: white;
-            color: #0891b2;
-            border: 2px solid #0891b2;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 16px 32px;
             border-radius: 12px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .cta-btn-outline:hover {
-            background: #f8fafc;
-            transform: translateY(-2px);
+            background: var(--white);
+            color: var(--primary-blue);
         }
+
+        /* Footer */
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
 
         @media (max-width: 968px) {
             .about-hero-content h1 {
@@ -370,8 +385,8 @@
                 </a>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html#home" class="nav-link animated-link" data-text="Home">Home</a></li>
-                <li><a href="index.html#services" class="nav-link animated-link" data-text="Services">Services</a></li>
+                <li><a href="index.html" class="nav-link animated-link" data-text="Home">Home</a></li>
+                <li><a href="services.html" class="nav-link animated-link" data-text="Services">Services</a></li>
                 <li><a href="about.html" class="nav-link animated-link" data-text="About">About</a></li>
                 <li><a href="portfolio.html" class="nav-link animated-link" data-text="Portfolio">Portfolio</a></li>
                 <li><a href="index.html#contact" class="nav-link animated-link" data-text="Contact">Contact</a></li>
@@ -576,6 +591,14 @@
         </div>
     </section>
 
+
     <script src="script.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 ADVAITA. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

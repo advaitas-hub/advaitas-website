@@ -1,3 +1,35 @@
+// Initial Entry Page Loader Controller (First Visit Only)
+(function() {
+    const loader = document.getElementById('page-loader');
+    if (!loader) return;
+
+    // Check session storage to only show loader on initial website entry
+    if (sessionStorage.getItem('advaita_visited')) {
+        document.documentElement.classList.add('no-loader');
+        loader.classList.add('loaded');
+        return;
+    }
+
+    sessionStorage.setItem('advaita_visited', 'true');
+
+    function dismissLoader() {
+        if (!loader.classList.contains('loaded')) {
+            loader.style.pointerEvents = 'none';
+            loader.classList.add('loaded');
+        }
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(dismissLoader, 350);
+    } else {
+        window.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoader, 350));
+        window.addEventListener('load', () => setTimeout(dismissLoader, 200));
+    }
+
+    // Safety timeout: Never hold screen for more than 500ms
+    setTimeout(dismissLoader, 500);
+})();
+
 // Hero Button Actions
 document.addEventListener('DOMContentLoaded', () => {
     const primaryBtn = document.querySelector('.primary-btn');
@@ -93,29 +125,34 @@ document.addEventListener('DOMContentLoaded', () => {
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a nav link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
 
 // Smooth scroll behavior
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        const targetId = this.getAttribute('href');
+        if (targetId && targetId !== '#') {
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         }
     });
 });
@@ -127,25 +164,26 @@ if (contactForm) {
         e.preventDefault();
         
         const button = contactForm.querySelector('.submit-button');
-        const buttonText = button.querySelector('.button-text');
-        const originalText = buttonText.textContent;
+        const buttonText = button ? button.querySelector('.button-text') : null;
+        const originalText = buttonText ? buttonText.textContent : '';
         
-        // Button loading state
-        buttonText.textContent = 'Sending...';
-        button.style.pointerEvents = 'none';
+        if (buttonText) buttonText.textContent = 'Sending...';
+        if (button) button.style.pointerEvents = 'none';
         
         // Simulate sending (replace with actual API call)
         setTimeout(() => {
-            buttonText.textContent = 'Message Sent!';
-            button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-            
-            // Create success particles
-            createSuccessParticles(button);
+            if (buttonText) buttonText.textContent = 'Message Sent!';
+            if (button) {
+                button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                createSuccessParticles(button);
+            }
             
             setTimeout(() => {
-                buttonText.textContent = originalText;
-                button.style.background = '';
-                button.style.pointerEvents = '';
+                if (buttonText) buttonText.textContent = originalText;
+                if (button) {
+                    button.style.background = '';
+                    button.style.pointerEvents = '';
+                }
                 contactForm.reset();
             }, 3000);
         }, 2000);
@@ -153,28 +191,19 @@ if (contactForm) {
 }
 
 // Navbar scroll effect with animation
-let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // Add scrolled class for shadow effect
-    if (scrollTop > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    
-    // Hide navbar on scroll down, show on scroll up
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-        navbar.style.transform = 'translateY(-100%)';
-    } else {
-        navbar.style.transform = 'translateY(0)';
-    }
-    
-    lastScrollTop = scrollTop;
-}, { passive: true });
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add scrolled class for shadow effect
+        if (scrollTop > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }, { passive: true });
+}
 
 
 // Hero Section - Animated Words Rotation
@@ -877,4 +906,66 @@ document.addEventListener('DOMContentLoaded', () => {
         messageTextarea.addEventListener('input', updateCounter);
         updateCounter();
     }
+});
+
+// =========================================================================
+// UNIVERSAL STAGGERED SCROLL REVEAL & PAGE LINK TRANSITIONS (SERVICES STYLE)
+// =========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Observe all key components for smooth staggered scroll reveal
+    const targetSelectors = [
+        '.service-card', '.service-card-clean', '.feature-card', '.feature-card-modern',
+        '.portfolio-card', '.portfolio-item', '.info-card', '.stat-box', '.why-us-card',
+        '.process-step', '.faq-item', '.get-started-main-grid', '.cta-container',
+        '.contact-card', '.hero-badge-animated', '.hero-animated-title', '.hero-animated-subtext'
+    ];
+
+    const revealElements = document.querySelectorAll(targetSelectors.join(', '));
+
+    if (revealElements.length > 0) {
+        const observerOptions = {
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => {
+            if (!el.classList.contains('reveal-on-scroll')) {
+                el.classList.add('reveal-on-scroll');
+            }
+
+            // Stagger siblings in same parent container
+            if (el.parentNode && el.parentNode.children) {
+                const index = Array.from(el.parentNode.children).indexOf(el);
+                el.style.transitionDelay = `${(index % 6) * 0.07}s`;
+            }
+
+            revealObserver.observe(el);
+        });
+    }
+
+    // 2. Smooth Outgoing Link Transition on Internal Navigation
+    document.querySelectorAll('a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+            e.preventDefault();
+            document.body.style.transition = 'opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1), transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)';
+            document.body.style.opacity = '0';
+            document.body.style.transform = 'translateY(-8px)';
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 260);
+        });
+    });
 });
