@@ -12,7 +12,7 @@
             name: "Aditya Maurya",
             designation: "CEO & Founder",
             quote: "Leading strategic vision and operations. Every great company starts with someone willing to do what needs to be done, no matter how small.",
-            image: "advaita-react/public/card images/mauraya.png"
+            image: "advaita-react/public/card images/ulta.jpeg"
         },
         {
             id: 2,
@@ -47,7 +47,7 @@
             name: "Disha",
             designation: "Team Lead & Founder",
             quote: "Leading teams and ensuring project excellence. Great leaders don't create followers—they create more leaders who inspire others to reach their potential.",
-            image: "team/disha.jpg"
+            image: "advaita-react/public/card images/disha 11.png"
         },
         {
             id: 7,
