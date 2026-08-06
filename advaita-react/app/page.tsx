@@ -2,6 +2,7 @@ import { AppleStyleDock } from '@/components/apple-dock';
 import Navbar from '@/components/navbar';
 import { AnimatedLayerButton } from '@/components/ui/animated-layer-button';
 import ServicesShowcase from '@/components/services-showcase';
+import WhatWeStandFor from '@/components/what-we-stand-for';
 
 export default function Home() {
   return (
@@ -44,6 +45,9 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* What We Stand For Section */}
+      <WhatWeStandFor />
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 px-4 bg-white">
