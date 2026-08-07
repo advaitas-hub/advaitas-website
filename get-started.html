@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Started - ADVAITA</title>
+    <title>ADVAITA - Get Started</title>
+    <link rel="icon" type="image/png" href="favicon-gpt.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -384,7 +385,7 @@
 
         .form-input {
             width: 100%;
-            padding: 13px 16px 13px 46px;
+            padding: 13px 16px;
             background: rgba(255, 255, 255, 0.05);
             border: 1.5px solid rgba(255, 255, 255, 0.12);
             border-radius: 12px;
@@ -853,11 +854,11 @@
                     <!-- Progress Wizard Header -->
                     <div class="wizard-header" id="wizardHeader">
                         <div class="wizard-meta">
-                            <span class="wizard-step-title" id="wizardStepTitle">Step 1 of 3: Contact Info</span>
-                            <span class="wizard-percentage" id="wizardPercentage">33%</span>
+                            <span class="wizard-step-title" id="wizardStepTitle">Step 1 of 2: Contact Info</span>
+                            <span class="wizard-percentage" id="wizardPercentage">50%</span>
                         </div>
                         <div class="progress-bar-track">
-                            <div class="progress-bar-fill" id="progressBarFill"></div>
+                            <div class="progress-bar-fill" id="progressBarFill" style="width: 50%;"></div>
                         </div>
                         <div class="step-pills">
                             <div class="step-pill active" id="pillStep1">
@@ -867,10 +868,6 @@
                             <div class="step-pill" id="pillStep2">
                                 <div class="pill-number">2</div>
                                 <span class="pill-text">Project</span>
-                            </div>
-                            <div class="step-pill" id="pillStep3">
-                                <div class="pill-number">3</div>
-                                <span class="pill-text">Budget</span>
                             </div>
                         </div>
                     </div>
@@ -884,11 +881,7 @@
                             <div class="form-group">
                                 <label for="fullName">Full Name *</label>
                                 <div class="input-wrapper" id="wrap_fullName">
-                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="12" cy="7" r="4"/>
-                                    </svg>
-                                    <input type="text" id="fullName" name="entry.1638128222" class="form-input" placeholder="Dr. Rajesh Kumar / Jane Doe" required>
+                                    <input type="text" id="fullName" name="entry.1638128222" class="form-input" required>
                                 </div>
                                 <div class="error-msg">Full name is required</div>
                             </div>
@@ -897,21 +890,14 @@
                                 <div class="form-group">
                                     <label for="email">Email Address *</label>
                                     <div class="input-wrapper" id="wrap_email">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                            <polyline points="22,6 12,13 2,6"/>
-                                        </svg>
-                                        <input type="email" id="email" name="entry.372610991" class="form-input" placeholder="john@example.com" required>
+                                        <input type="email" id="email" name="entry.372610991" class="form-input" required>
                                     </div>
                                     <div class="error-msg">Please enter a valid email address</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone Number *</label>
                                     <div class="input-wrapper" id="wrap_phone">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                        </svg>
-                                        <input type="tel" id="phone" name="entry.1423373992" class="form-input" placeholder="+91 98765 43210" required>
+                                        <input type="tel" id="phone" name="entry.1423373992" class="form-input" required>
                                     </div>
                                     <div class="error-msg">Phone number is required</div>
                                 </div>
@@ -921,22 +907,13 @@
                                 <div class="form-group">
                                     <label for="company">Organization / Company Name</label>
                                     <div class="input-wrapper" id="wrap_company">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
-                                            <path d="M9 22v-4h6v4"/>
-                                            <path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/>
-                                        </svg>
-                                        <input type="text" id="company" name="entry.1612586473" class="form-input" placeholder="Acme Corp / City Hospital">
+                                        <input type="text" id="company" name="entry.1612586473" class="form-input">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="contactMethod">Preferred Contact Method</label>
                                     <div class="input-wrapper custom-select-wrapper" id="wrap_contactMethod">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                                        </svg>
                                         <select id="contactMethod" name="entry.975109106" class="form-input">
-                                            <option value="">Preferred method (optional)</option>
                                             <option value="Email">Email</option>
                                             <option value="Phone">Phone Call</option>
                                             <option value="WhatsApp">WhatsApp</option>
@@ -963,12 +940,7 @@
                             <div class="form-group">
                                 <label for="service">Service Interested In *</label>
                                 <div class="input-wrapper custom-select-wrapper" id="wrap_service">
-                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="16 18 22 12 16 6"/>
-                                        <polyline points="8 6 2 12 8 18"/>
-                                    </svg>
                                     <select id="service" name="entry.1236025348" class="form-input" required>
-                                        <option value="">Select a service</option>
                                         <option value="UI/UX Design">UI/UX Design</option>
                                         <option value="Web Design">Web Design</option>
                                         <option value="Landing Page Design">Landing Page Design</option>
@@ -990,13 +962,7 @@
                                 <div class="form-group">
                                     <label for="existingSystem">Existing Website / System?</label>
                                     <div class="input-wrapper custom-select-wrapper" id="wrap_existingSystem">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <circle cx="12" cy="12" r="10"/>
-                                            <line x1="12" y1="8" x2="12" y2="12"/>
-                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
-                                        </svg>
                                         <select id="existingSystem" name="entry.566281064" class="form-input" onchange="toggleExistingDetailsField(this.value)">
-                                            <option value="">Select option (optional)</option>
                                             <option value="No">No (Building from scratch)</option>
                                             <option value="Yes">Yes (Upgrading / Migrating)</option>
                                         </select>
@@ -1008,13 +974,7 @@
                                 <div class="form-group">
                                     <label for="expectedScale">Expected Scale / Users</label>
                                     <div class="input-wrapper" id="wrap_expectedScale">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                            <circle cx="9" cy="7" r="4"/>
-                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                        </svg>
-                                        <input type="text" id="expectedScale" name="entry.334255553" class="form-input" placeholder="e.g. ~500 patients/day, 2000 students">
+                                        <input type="text" id="expectedScale" name="entry.334255553" class="form-input">
                                     </div>
                                 </div>
                             </div>
@@ -1023,120 +983,20 @@
                             <div class="form-group dynamic-field-group" id="wrap_existingDetailsGroup">
                                 <label for="existingDetails">Details About Existing System</label>
                                 <div class="input-wrapper" id="wrap_existingDetails">
-                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                                    </svg>
-                                    <input type="text" id="existingDetails" name="entry.1835012825" class="form-input" placeholder="Tell us what needs to change, migrate, or integrate...">
+                                    <input type="text" id="existingDetails" name="entry.1835012825" class="form-input">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Tell Us About Your Project *</label>
                                 <div class="input-wrapper textarea-wrapper" id="wrap_message">
-                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                                    </svg>
-                                    <textarea id="message" name="entry.621665603" class="form-input form-textarea" required
-                                        placeholder="Describe your project goals, key requirements, or specific features..."></textarea>
+                                    <textarea id="message" name="entry.621665603" class="form-input form-textarea" required></textarea>
                                 </div>
                                 <div class="error-msg">Project description is required</div>
                             </div>
 
                             <div class="wizard-actions">
                                 <button type="button" class="wizard-btn-back" onclick="goToStep(1)">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="15 18 9 12 15 6"/>
-                                    </svg>
-                                    <span>Back</span>
-                                </button>
-                                <button type="button" class="wizard-btn-next" onclick="goToStep(3)">
-                                    <span>Next: Budget & Timeline</span>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="9 18 15 12 9 6"/>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- STEP 3: Budget & Timeline -->
-                        <div class="wizard-step step-3" id="step3">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="budget">Estimated Budget *</label>
-                                    <div class="input-wrapper" id="wrap_budget">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-                                            <line x1="7" y1="7" x2="7.01" y2="7"/>
-                                        </svg>
-                                        <input type="text" id="budget" name="entry.1616114579" class="form-input" placeholder="e.g. ₹50,000 / ₹2 Lakhs" required>
-                                    </div>
-                                    <div class="error-msg">Estimated budget is required</div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="timeline">Project Timeline</label>
-                                    <div class="input-wrapper custom-select-wrapper" id="wrap_timeline">
-                                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <circle cx="12" cy="12" r="10"/>
-                                            <polyline points="12 6 12 12 16 14"/>
-                                        </svg>
-                                        <select id="timeline" name="entry.1673979375" class="form-input">
-                                            <option value="">Select timeline</option>
-                                            <option value="Urgent (< 1 month)">Urgent (&lt; 1 month)</option>
-                                            <option value="1-3 months">1-3 months</option>
-                                            <option value="3-6 months">3-6 months</option>
-                                            <option value="6+ months">6+ months</option>
-                                        </select>
-                                        <svg class="custom-select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polyline points="6 9 12 15 18 9"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- How did you hear about us? -->
-                            <div class="form-group">
-                                <label for="hearAboutUs">How did you hear about us?</label>
-                                <div class="input-wrapper custom-select-wrapper" id="wrap_hearAboutUs">
-                                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <line x1="2" y1="12" x2="22" y2="12"/>
-                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                                    </svg>
-                                    <select id="hearAboutUs" name="hearAboutUs" class="form-input">
-                                        <option value="">Select option (optional)</option>
-                                        <option value="google">Google Search</option>
-                                        <option value="referral">Referral / Word of Mouth</option>
-                                        <option value="social">Social Media</option>
-                                        <option value="existing-client">Existing Client</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    <svg class="custom-select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="6 9 12 15 18 9"/>
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <!-- Trust Microcopy -->
-                            <div class="trust-microcopy">
-                                <div class="trust-item">
-                                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <polyline points="12 6 12 12 16 14"/>
-                                    </svg>
-                                    <span>We'll get back to you within 24 hours.</span>
-                                </div>
-                                <div class="trust-item">
-                                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                                    </svg>
-                                    <span>Your information is kept 100% confidential.</span>
-                                </div>
-                            </div>
-
-                            <div class="wizard-actions">
-                                <button type="button" class="wizard-btn-back" onclick="goToStep(2)">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <polyline points="15 18 9 12 15 6"/>
                                     </svg>
@@ -1241,7 +1101,7 @@
         // Toggle Dynamic Field for Existing System Details
         function toggleExistingDetailsField(val) {
             const group = document.getElementById('wrap_existingDetailsGroup');
-            if (val === 'yes') {
+            if (val && val.toLowerCase() === 'yes') {
                 group.style.display = 'block';
             } else {
                 group.style.display = 'none';
@@ -1285,46 +1145,35 @@
 
             const pill1 = document.getElementById('pillStep1');
             const pill2 = document.getElementById('pillStep2');
-            const pill3 = document.getElementById('pillStep3');
 
             if (step === 1) {
-                titleEl.textContent = 'Step 1 of 3: Contact Info';
-                percEl.textContent = '33%';
-                barEl.style.width = '33.33%';
+                titleEl.textContent = 'Step 1 of 2: Contact Info';
+                percEl.textContent = '50%';
+                barEl.style.width = '50%';
 
                 pill1.className = 'step-pill active';
                 pill2.className = 'step-pill';
-                pill3.className = 'step-pill';
             } else if (step === 2) {
-                titleEl.textContent = 'Step 2 of 3: Project Details';
-                percEl.textContent = '66%';
-                barEl.style.width = '66.66%';
-
-                pill1.className = 'step-pill completed';
-                pill2.className = 'step-pill active';
-                pill3.className = 'step-pill';
-            } else if (step === 3) {
-                titleEl.textContent = 'Step 3 of 3: Budget & Timeline';
+                titleEl.textContent = 'Step 2 of 2: Project Details';
                 percEl.textContent = '100%';
                 barEl.style.width = '100%';
 
                 pill1.className = 'step-pill completed';
-                pill2.className = 'step-pill completed';
-                pill3.className = 'step-pill active';
+                pill2.className = 'step-pill active';
             }
         }
 
         // Handle Final Form Submission
         document.getElementById('getStartedForm').addEventListener('submit', function (e) {
-            // Validate Step 3 fields
-            const step3Inputs = document.getElementById('step3').querySelectorAll('.form-input[required]');
-            let step3Valid = true;
-            step3Inputs.forEach(function(input) {
+            // Validate Step 2 fields
+            const step2Inputs = document.getElementById('step2').querySelectorAll('.form-input[required]');
+            let step2Valid = true;
+            step2Inputs.forEach(function(input) {
                 if (!validateSingleField(input, true)) {
-                    step3Valid = false;
+                    step2Valid = false;
                 }
             });
-            if (!step3Valid) {
+            if (!step2Valid) {
                 e.preventDefault();
                 return;
             }

@@ -12,14 +12,14 @@
             name: "Aditya Maurya",
             role: "Peon & Founder - Managing daily operations and building the foundation.",
             tag: "Peon",
-            image: "aditya-maurya.jpg"
+            image: "advaita-react/public/card images/ulta.jpeg"
         },
         {
             id: 2,
             name: "Aditya B Mali",
             role: "MD & Founder - Marketing Head driving brand strategy and innovation.",
             tag: "MD",
-            image: "aditya-b-mali.png"
+            image: "advaita-react/public/card images/aditya-b-mali.png"
         },
         {
             id: 3,
@@ -45,15 +45,15 @@
         {
             id: 6,
             name: "Disha",
-            role: "Team Lead & Founder - Leading teams and ensuring project excellence.",
-            tag: "Team Lead",
-            image: "team/disha.jpg"
+            role: "CTO & Founder - Leading teams and ensuring project excellence.",
+            tag: "CTO",
+            image: "advaita-react/public/card images/disha 11.png"
         },
         {
             id: 7,
-            name: "Aishu Parekar",
-            role: "Designer & Founder - Crafting beautiful user experiences and brand identity.",
-            tag: "Designer",
+            name: "Aishu A Parekar",
+            role: "CDO & Founder - Crafting beautiful user experiences and brand identity.",
+            tag: "CDO",
             image: "aishu-parekar.png"
         }
     ];

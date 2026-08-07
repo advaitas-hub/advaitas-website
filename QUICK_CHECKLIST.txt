@@ -1,0 +1,35 @@
+ABOUT PAGE INTEGRATION - QUICK CHECKLIST
+========================================
+
+□ Step 1: Backup current about.html (if exists)
+
+□ Step 2: Copy to project root:
+   - about.html
+   - founders-carousel.js
+   - founders-carousel.css
+
+□ Step 3: Copy images to advaita-react/public/card images/:
+   - ulta.jpeg
+   - disha 11.png
+
+□ Step 4: Verify existing images are present:
+   - card 2.jpg
+   - singh.png
+   - abhinav final.jpeg
+   - don.png
+   - handi.png
+
+□ Step 5: Test in browser
+   - Open about.html
+   - Check all 7 founders appear
+   - Verify auto-play works (2 sec intervals)
+   - Test navigation arrows and dots
+
+□ Step 6: Git commands
+   git add about.html founders-carousel.js founders-carousel.css
+   git add advaita-react/public/card\ images/ulta.jpeg
+   git add advaita-react/public/card\ images/disha\ 11.png
+   git commit -m "Integrate about page with founders carousel"
+   git push origin develop
+
+DONE!

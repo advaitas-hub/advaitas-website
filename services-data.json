@@ -3,7 +3,7 @@
     "ui-ux-design": {
       "name": "UI/UX Design",
       "slug": "ui-ux-design",
-      "headline": "Interfaces people don't have to think about",
+      "headline": "Design intuitive and user-friendly interfaces that make websites and applications easy to navigate. We create experiences that improve usability, engagement, and customer satisfaction.",
       "problem": "Confusing flows quietly bleed users at every step.",
       "approach": [
         "User research",
@@ -35,9 +35,9 @@
       ]
     },
     "web-design": {
-      "name": "Web Design",
+      "name": "Website Design",
       "slug": "web-design",
-      "headline": "A website that looks like your best competitor built it — because you did",
+      "headline": "Create modern, visually appealing websites that reflect your brand and build trust with your audience. Every design is tailored to your business and optimized for all devices.",
       "problem": "Generic templates don't build trust. Visitors judge credibility in seconds.",
       "approach": [
         "Discovery & competitor audit",
@@ -71,7 +71,7 @@
     "landing-page-design": {
       "name": "Landing Page Design",
       "slug": "landing-page-design",
-      "headline": "Built for one job: turning clicks into customers",
+      "headline": "Design high-converting landing pages for marketing campaigns, product launches, and lead generation, focused on turning visitors into customers.",
       "problem": "Sending ad traffic to a generic homepage kills conversion rate.",
       "approach": [
         "Offer/goal definition",
@@ -104,7 +104,7 @@
     "mobile-app-design": {
       "name": "Mobile App Design",
       "slug": "mobile-app-design",
-      "headline": "App interfaces that feel obvious from screen one",
+      "headline": "Design clean and intuitive mobile app interfaces that provide a seamless experience across Android and iOS devices.",
       "problem": "Users abandon apps in the first session if onboarding is confusing.",
       "approach": [
         "User flow mapping",
@@ -135,9 +135,9 @@
       ]
     },
     "web-redesign": {
-      "name": "Web Redesign",
+      "name": "Website Redesign",
       "slug": "web-redesign",
-      "headline": "Same brand, real upgrade — without losing what already works",
+      "headline": "Refresh outdated websites with a modern design, improved performance, and a better user experience while preserving your business identity.",
       "problem": "An outdated site quietly loses trust and search ranking.",
       "approach": [
         "Audit current site",
@@ -169,9 +169,9 @@
       ]
     },
     "branding": {
-      "name": "Branding",
+      "name": "Brand Identity",
       "slug": "branding",
-      "headline": "A brand identity that makes you instantly recognizable",
+      "headline": "Build a consistent visual identity with professional logos, colors, typography, and brand guidelines that help your business stand out.",
       "problem": "Inconsistent visuals across platforms make you look unprofessional.",
       "approach": [
         "Brand discovery",
@@ -203,9 +203,9 @@
       ]
     },
     "web-development": {
-      "name": "Web Development",
+      "name": "Website Development",
       "slug": "web-development",
-      "headline": "From design file to live, fast, bug-free website",
+      "headline": "Develop fast, secure, and responsive websites using modern technologies. Our websites are optimized for performance, scalability, and search engines.",
       "problem": "A beautiful design that's slow or breaks on mobile costs you customers.",
       "approach": [
         "Dev environment setup",
@@ -237,9 +237,9 @@
       ]
     },
     "software-development": {
-      "name": "Software Development",
+      "name": "Custom Software Development",
       "slug": "software-development",
-      "headline": "Software built around how your business actually works",
+      "headline": "Build software tailored to your business processes. We develop secure, scalable solutions that automate workflows and improve operational efficiency.",
       "problem": "Generic SaaS tools force you to bend your workflow to fit them.",
       "approach": [
         "Requirements & architecture",
@@ -273,7 +273,7 @@
     "mobile-app-development": {
       "name": "Mobile App Development",
       "slug": "mobile-app-development",
-      "headline": "Native-feeling apps, built once, shipped everywhere",
+      "headline": "Develop high-performance Android and iOS applications that deliver smooth user experiences and support your business goals.",
       "problem": "A slow, buggy app gets uninstalled — and rated publicly.",
       "approach": [
         "Architecture planning",

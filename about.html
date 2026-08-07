@@ -3,51 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - ADVAITA</title>
+    <title>ADVAITA - About Us</title>
+    <link rel="icon" type="image/png" href="favicon-gpt.png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="founders-carousel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Edu+TAS+Beginner:wght@400..700&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Fleur+De+Leah&family=Griffy&family=Shadows+Into+Light&family=Yuyu+Short&display=swap" rel="stylesheet">
     <style>
         .about-page-hero {
             min-height: 100vh;
-            background: white;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f0f9ff 100%);
             padding: 120px 20px 80px;
             position: relative;
             overflow: hidden;
         }
 
+        /* Animated gradient overlay */
         .about-page-hero::before {
             content: '';
             position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 0%,
+                rgba(34, 211, 238, 0.05) 25%,
+                transparent 50%,
+                rgba(8, 145, 178, 0.05) 75%,
+                transparent 100%
+            );
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Particle dots */
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .particle-dot {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(8, 145, 178, 0.7);
+            border-radius: 50%;
+            animation: particleFloat var(--duration) ease-in-out infinite;
+            box-shadow: 0 0 10px rgba(8, 145, 178, 0.5);
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(var(--drift));
+                opacity: 0;
+            }
+        }
+
+        /* Floating geometric shapes */
+        .floating-shapes {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: floatShape var(--duration) ease-in-out infinite;
+        }
+
+        .shape-circle {
+            width: 100px;
+            height: 100px;
+            border: 3px solid #22d3ee;
+            border-radius: 50%;
+            top: 20%;
+            left: 10%;
+            --duration: 8s;
+        }
+
+        .shape-square {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #0891b2;
+            top: 60%;
+            right: 15%;
+            --duration: 10s;
+            animation-delay: -2s;
+        }
+
+        .shape-triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 87px solid #22d3ee;
+            top: 40%;
+            left: 80%;
+            --duration: 12s;
+            animation-delay: -4s;
+        }
+
+        @keyframes floatShape {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+        }
+
+        /* Glowing orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: orbPulse var(--duration) ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .orb-1 {
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(8, 145, 178, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.3) 0%, transparent 70%);
             top: -200px;
-            right: -200px;
-            animation: float 8s ease-in-out infinite;
+            right: -100px;
+            --duration: 8s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.25) 0%, transparent 70%);
+            bottom: -150px;
+            left: -100px;
+            --duration: 10s;
+            animation-delay: -3s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            --duration: 12s;
+            animation-delay: -5s;
+        }
+
+        @keyframes orbPulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
         }
 
         .about-hero-content {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
             text-align: center;
             position: relative;
-            z-index: 2;
+            z-index: 10;
         }
 
         .about-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
+            gap: 10px;
+            padding: 12px 28px;
             background: linear-gradient(135deg, #0891b2, #22d3ee);
             color: white;
             border-radius: 50px;
             font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            box-shadow: 
+                0 10px 30px rgba(8, 145, 178, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s ease-out, badgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes badgePulse {
+            0%, 100% {
+                box-shadow: 
+                    0 10px 30px rgba(8, 145, 178, 0.3),
+                    0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            50% {
+                box-shadow: 
+                    0 10px 40px rgba(8, 145, 178, 0.5),
+                    0 6px 12px rgba(0, 0, 0, 0.15);
+            }
         }
 
         .about-hero-content h1 {
@@ -56,34 +237,222 @@
             color: #0a0f1e;
             margin-bottom: 32px;
             line-height: 1.1;
+            font-weight: 800;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .about-hero-content h1 .gradient-text {
-            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            background: linear-gradient(135deg, #0891b2 0%, #22d3ee 50%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite, fadeInUp 1s ease-out 0.3s both;
+            filter: drop-shadow(0 0 20px rgba(8, 145, 178, 0.3));
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position: 200% center;
+            }
         }
 
         .about-hero-content .lead-text {
-            font-size: 24px;
-            color: #0a0f1e;
+            font-size: 28px;
+            color: #1e293b;
             font-weight: 600;
             line-height: 1.6;
             margin-bottom: 24px;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .about-hero-content .description {
-            font-size: 18px;
-            color: #64748b;
+            font-size: 19px;
+            color: #475569;
             line-height: 1.8;
             margin-bottom: 48px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        /* CTA Buttons in Hero */
+        .hero-cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn-primary {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #22d3ee, #0891b2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(34, 211, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .hero-btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(34, 211, 238, 0.5);
+        }
+
+        .hero-btn-outline {
+            padding: 18px 40px;
+            background: white;
+            backdrop-filter: blur(10px);
+            color: #0891b2;
+            border: 2px solid #0891b2;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn-outline:hover {
+            background: #f0f9ff;
+            border-color: #22d3ee;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+        }
+
+        /* Stats showcase in hero */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .hero-stat-item {
+            padding: 30px;
+            background: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-stat-item:hover {
+            background: #f0f9ff;
+            border-color: rgba(8, 145, 178, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.15);
+        }
+
+        .hero-stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .hero-stat-label {
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fadeInUp 1s ease-out 0.8s both, scrollBounce 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: #64748b;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
         }
 
         /* Story Section */
         .story-section {
             padding: 100px 20px;
             background: #f8fafc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative background pattern */
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
         .story-container {
@@ -93,6 +462,8 @@
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
+            position: relative;
+            z-index: 10;
         }
 
         .story-image {
@@ -105,7 +476,42 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(34, 211, 238, 0.1);
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(34, 211, 238, 0.05) 50%,
+                transparent 70%
+            );
+            animation: imageShine 3s ease-in-out infinite;
+        }
+
+        @keyframes imageShine {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
         }
 
         .story-image img {
@@ -115,37 +521,149 @@
             object-fit: contain;
             position: relative;
             z-index: 2;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+            animation: imagePulse 4s ease-in-out infinite;
+        }
+
+        @keyframes imagePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .story-content {
+            animation: fadeInRight 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .story-content h2 {
-            font-size: 48px;
+            font-family: "Cinzel", serif;
+            font-size: 56px;
             color: #0a0f1e;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             line-height: 1.2;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .story-content h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #22d3ee, transparent);
+            border-radius: 2px;
+            animation: lineGrow 1s ease-out 0.5s both;
+        }
+
+        @keyframes lineGrow {
+            from { width: 0; }
+            to { width: 80px; }
         }
 
         .story-content p {
-            font-size: 18px;
+            font-size: 19px;
             color: #64748b;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            line-height: 1.9;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: paragraphFadeIn 0.8s ease-out forwards;
+        }
+
+        .story-content p:nth-of-type(1) {
+            animation-delay: 0.4s;
+        }
+
+        .story-content p:nth-of-type(2) {
+            animation-delay: 0.6s;
+        }
+
+        .story-content p:nth-of-type(3) {
+            animation-delay: 0.8s;
+        }
+
+        .story-content p:nth-of-type(4) {
+            animation-delay: 1s;
+        }
+
+        @keyframes paragraphFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .story-content p.highlight {
-            font-size: 20px;
+            font-size: 22px;
             color: #0a0f1e;
-            font-weight: 600;
+            font-weight: 700;
+            font-family: "Cinzel", serif;
+            position: relative;
+            padding-left: 24px;
+            font-style: italic;
         }
 
-        /* Values Section */
+        .story-content p.highlight::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 48px;
+            color: #22d3ee;
+            opacity: 0.4;
+            font-family: Georgia, serif;
+        }
+
+        /* Values Section - Pinned Cards */
         .values-section {
             padding: 100px 20px;
             background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Grid background */
+        .values-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.08;
+            background-image: linear-gradient(#000 1px, transparent 1px);
+            background-size: 100% 32px;
+            margin-top: 4px;
+        }
+
+        /* Gradient fades on sides */
+        .values-section::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, white 0%, transparent 20%, transparent 80%, white 100%);
         }
 
         .values-container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         .values-header {
@@ -154,9 +672,11 @@
         }
 
         .values-header h2 {
+            font-family: "Yuyu Short", sans-serif;
             font-size: 56px;
             color: #0a0f1e;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .values-header p {
@@ -164,41 +684,164 @@
             color: #64748b;
         }
 
-        .values-list {
-            display: grid;
-            gap: 48px;
+        /* Pinned Cards Container */
+        .pinned-cards-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 1130px;
         }
 
-        .value-item {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 32px;
-            align-items: start;
+        /* Animated Connection Lines */
+        .connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .value-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0891b2, #22d3ee);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
+        .connection-lines path {
+            stroke: #d1d5db;
+            animation: pathAnimation 3s linear infinite;
+        }
+
+        @keyframes pathAnimation {
+            to {
+                stroke-dashoffset: -140;
+            }
+        }
+
+        /* Individual Pinned Card */
+        .pinned-card {
+            position: absolute;
+            width: 280px;
+            transition: transform 0.3s ease, z-index 0.3s ease;
+            z-index: 10;
+        }
+
+        .pinned-card:hover {
+            transform: scale(1.05) !important;
+            z-index: 30;
+        }
+
+        /* Card Positioning with Rotation */
+        .card-1 {
+            top: 0;
+            left: 15%;
+            transform: rotate(8deg);
+        }
+
+        .card-2 {
+            top: 120px;
+            right: 15%;
+            transform: rotate(-8deg);
+        }
+
+        .card-3 {
+            top: 450px;
+            left: 15%;
+            transform: rotate(8deg);
+        }
+
+        .card-4 {
+            top: 570px;
+            right: 10%;
+            transform: rotate(-8deg);
+        }
+
+        .card-5 {
+            top: 850px;
+            left: 15%;
+            transform: rotate(8deg);
+        }
+
+        /* Card Inner Container */
+        .card-inner {
+            background: white;
+            padding: 8px;
+            border-radius: 25px;
+            box-shadow: 
+                0px 10px 20px 0px rgba(211, 211, 211, 0.5),
+                0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Pin Icon */
+        .pin-icon {
+            width: 32px;
+            height: 32px;
+            color: #2563eb;
+            margin: 0 auto 24px;
+            display: block;
+            z-index: 20;
+        }
+
+        /* Card Content Box */
+        .card-content-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Card Number */
+        .card-number {
+            font-family: "Comic Sans MS", "Chalkboard SE", sans-serif;
+            font-size: 40px;
             font-weight: 700;
-            color: white;
+            color: #2563eb;
+            display: block;
+            margin-bottom: 20px;
+            line-height: 1;
         }
 
-        .value-content h3 {
-            font-size: 28px;
+        /* Card Title */
+        .card-content-box h3 {
+            font-size: 22px;
+            font-weight: 600;
             color: #0a0f1e;
             margin-bottom: 12px;
+            line-height: 1.2;
         }
 
-        .value-content p {
-            font-size: 18px;
+        /* Card Description */
+        .card-content-box p {
+            font-size: 14px;
+            line-height: 1.6;
             color: #64748b;
-            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 968px) {
+            .pinned-cards-container {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .pinned-card {
+                position: static !important;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+                transform: rotate(0deg) !important;
+            }
+
+            .connection-lines {
+                display: none;
+            }
+
+            .values-header h2 {
+                font-size: 40px;
+            }
         }
 
         /* Team Section */
@@ -262,90 +905,269 @@
 
         /* CTA Section */
         .cta-section {
-            padding: 100px 20px;
+            padding: 120px 20px;
             background: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background particles */
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(8, 145, 178, 0.08) 0%, transparent 50%);
+            animation: particleFloat 15s ease-in-out infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
         }
 
         .cta-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 10;
         }
 
         .cta-container h2 {
-            font-size: 48px;
-            color: #0a0f1e;
+            font-family: "Cinzel", serif;
+            font-size: 64px;
+            font-weight: 800;
             margin-bottom: 24px;
+            line-height: 1.2;
+            color: #0a0f1e;
+        }
+
+        .cta-container h2 .highlight {
+            background: linear-gradient(135deg, #0891b2 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            animation: highlightPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes highlightPulse {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.6));
+            }
+        }
+
+        .cta-container h2 .highlight::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+            animation: underlineSlide 2s ease-in-out infinite;
+        }
+
+        @keyframes underlineSlide {
+            0%, 100% { transform: scaleX(0.5); opacity: 0.5; }
+            50% { transform: scaleX(1); opacity: 1; }
         }
 
         .cta-container p {
-            font-size: 20px;
-            color: #64748b;
-            margin-bottom: 40px;
+            font-size: 24px;
+            color: #475569;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 24px;
             justify-content: center;
             flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
         .cta-btn-primary {
-            padding: 18px 40px;
-            background: linear-gradient(135deg, #0891b2, #22d3ee);
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #22d3ee, #0891b2);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 600;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            box-shadow: 
+                0 20px 60px rgba(34, 211, 238, 0.4),
+                0 0 0 0 rgba(34, 211, 238, 0.5);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-btn-primary:hover::before {
+            width: 400px;
+            height: 400px;
         }
 
         .cta-btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 30px 80px rgba(34, 211, 238, 0.6),
+                0 0 0 8px rgba(34, 211, 238, 0.2);
+        }
+
+        .cta-btn-primary:active {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+        }
+
+        .cta-btn-primary svg {
+            transition: transform 0.3s ease;
+        }
+
+        .cta-btn-primary:hover svg {
+            transform: translateX(5px);
         }
 
         .cta-btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 20px 50px;
+            background: white;
+            color: #0891b2;
+            border: 2px solid #0891b2;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-btn-outline:hover::before {
+            left: 100%;
         }
 
         .cta-btn-outline:hover {
-            background: var(--white);
-            color: var(--primary-blue);
+            background: #f0f9ff;
+            border-color: #22d3ee;
+            transform: translateY(-5px);
+            box-shadow: 
+                0 20px 50px rgba(34, 211, 238, 0.3),
+                0 0 0 8px rgba(34, 211, 238, 0.1);
         }
 
-        /* Footer */
-        
+        /* Floating icons decoration */
+        .cta-decoration {
+            position: absolute;
+            opacity: 0.15;
+            animation: floatDecor 8s ease-in-out infinite;
+        }
 
-        
+        .cta-decoration-1 {
+            top: 10%;
+            left: 10%;
+            font-size: 80px;
+            animation-delay: 0s;
+        }
 
-        
+        .cta-decoration-2 {
+            top: 20%;
+            right: 15%;
+            font-size: 60px;
+            animation-delay: 2s;
+        }
 
-        
+        .cta-decoration-3 {
+            bottom: 15%;
+            left: 15%;
+            font-size: 70px;
+            animation-delay: 4s;
+        }
 
-        
+        .cta-decoration-4 {
+            bottom: 10%;
+            right: 10%;
+            font-size: 50px;
+            animation-delay: 6s;
+        }
 
-        
-
-        
+        @keyframes floatDecor {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
+        }
 
         @media (max-width: 968px) {
             .about-hero-content h1 {
-                font-size: 48px;
+                font-size: 56px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero-cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-btn-primary,
+            .hero-btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .floating-shapes .shape {
+                display: none;
             }
 
             .story-container {
@@ -368,6 +1190,31 @@
         }
 
         @media (max-width: 640px) {
+            .about-hero-content h1 {
+                font-size: 42px;
+            }
+
+            .about-hero-content .lead-text {
+                font-size: 22px;
+            }
+
+            .about-hero-content .description {
+                font-size: 17px;
+            }
+
+            .hero-stat-number {
+                font-size: 36px;
+            }
+
+            .glow-orb {
+                filter: blur(60px);
+            }
+
+            .orb-1, .orb-2 {
+                width: 400px;
+                height: 400px;
+            }
+
             .team-stats {
                 grid-template-columns: 1fr;
             }
@@ -385,7 +1232,7 @@
                 </a>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link animated-link" data-text="Home">Home</a></li>
+                <li><a href="index.html#home" class="nav-link animated-link" data-text="Home">Home</a></li>
                 <li><a href="services.html" class="nav-link animated-link" data-text="Services">Services</a></li>
                 <li><a href="about.html" class="nav-link animated-link" data-text="About">About</a></li>
                 <li><a href="portfolio.html" class="nav-link animated-link" data-text="Portfolio">Portfolio</a></li>
@@ -402,6 +1249,21 @@
 
     <!-- Hero Section -->
     <section class="about-page-hero">
+        <!-- Animated Background Effects -->
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+        
+        <!-- Floating Shapes -->
+        <div class="floating-shapes">
+            <div class="shape shape-circle"></div>
+            <div class="shape shape-square"></div>
+            <div class="shape shape-triangle"></div>
+        </div>
+
+        <!-- Particle System -->
+        <div class="hero-particles" id="heroParticles"></div>
+
         <div class="about-hero-content">
             <div class="about-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -427,6 +1289,26 @@
                 creating experiences that make people's lives better. We believe definitions are limiting, 
                 boxes are meant to be broken, and the best solutions come from thinking differently.
             </p>
+
+            <!-- Hero CTA Buttons -->
+            <div class="hero-cta-buttons">
+                <button class="hero-btn-primary" onclick="window.location.href='get-started.html'">
+                    Start Your Journey
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 10H16M16 10L10 4M16 10L10 16"/>
+                    </svg>
+                </button>
+                <button class="hero-btn-outline" onclick="window.location.href='schedule-call.html'">
+                    Let's Talk
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
         </div>
     </section>
 
@@ -472,98 +1354,125 @@
                 <p>The principles that drive everything we do</p>
             </div>
 
-            <div class="values-list">
-                <div class="value-item">
-                    <div class="value-number">01</div>
-                    <div class="value-content">
-                        <h3>Obsessed with Quality</h3>
-                        <p>
-                            Good enough? Not in our vocabulary. We're perfectionists who sweat the 
-                            small stuff because we know it's the details that separate great from mediocre. 
-                            Every line of code, every pixel, every interaction — it all matters.
-                        </p>
+            <div class="pinned-cards-container">
+                <svg class="connection-lines" viewBox="0 0 1000 1130" preserveAspectRatio="none">
+                    <path 
+                        id="animated-path"
+                        d="M 290 150 C 500 150, 550 270, 710 270 C 850 270, 500 350, 290 450 C 290 600, 550 720, 750 720 C 950 720, 500 800, 290 850" 
+                        stroke="currentColor" 
+                        stroke-width="2" 
+                        stroke-dasharray="8 6" 
+                        fill="none" 
+                        stroke-linecap="round"
+                        class="text-neutral-300"
+                    />
+                </svg>
+
+                <!-- Card 1 -->
+                <div class="pinned-card card-1">
+                    <div class="card-inner">
+                        <svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                        </svg>
+                        <div class="card-content-box">
+                            <span class="card-number">01</span>
+                            <h3>Obsessed with Quality</h3>
+                            <p>Good enough? Not in our vocabulary. We're perfectionists who sweat the small stuff because we know it's the details that separate great from mediocre.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="value-item">
-                    <div class="value-number">02</div>
-                    <div class="value-content">
-                        <h3>Radically Transparent</h3>
-                        <p>
-                            No smoke and mirrors. No corporate speak. We tell you what's working, 
-                            what's not, and why. You'll always know exactly where your project stands, 
-                            what we're doing, and what comes next. Honesty builds trust, and trust 
-                            builds great partnerships.
-                        </p>
+                <!-- Card 2 -->
+                <div class="pinned-card card-2">
+                    <div class="card-inner">
+                        <svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                        </svg>
+                        <div class="card-content-box">
+                            <span class="card-number">02</span>
+                            <h3>Radically Transparent</h3>
+                            <p>No smoke and mirrors. No corporate speak. We tell you what's working, what's not, and why. Honesty builds trust, and trust builds great partnerships.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="value-item">
-                    <div class="value-number">03</div>
-                    <div class="value-content">
-                        <h3>Relentlessly Innovative</h3>
-                        <p>
-                            We don't follow trends — we create them. While others play it safe, 
-                            we're exploring new technologies, experimenting with bold ideas, and 
-                            finding better ways to solve old problems. Innovation isn't a buzzword 
-                            for us; it's our DNA.
-                        </p>
+                <!-- Card 3 -->
+                <div class="pinned-card card-3">
+                    <div class="card-inner">
+                        <svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                        </svg>
+                        <div class="card-content-box">
+                            <span class="card-number">03</span>
+                            <h3>Relentlessly Innovative</h3>
+                            <p>We don't follow trends — we create them. While others play it safe, we're exploring new technologies and finding better ways to solve problems.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="value-item">
-                    <div class="value-number">04</div>
-                    <div class="value-content">
-                        <h3>Your Success = Our Success</h3>
-                        <p>
-                            When you win, we celebrate. When you face challenges, we're in the trenches 
-                            with you. We're not vendors delivering a product and disappearing — we're 
-                            partners invested in your long-term success. Your goals become our mission.
-                        </p>
+                <!-- Card 4 -->
+                <div class="pinned-card card-4">
+                    <div class="card-inner">
+                        <svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                        </svg>
+                        <div class="card-content-box">
+                            <span class="card-number">04</span>
+                            <h3>Your Success = Our Success</h3>
+                            <p>When you win, we celebrate. When you face challenges, we're in the trenches with you. We're partners invested in your long-term success.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="value-item">
-                    <div class="value-number">05</div>
-                    <div class="value-content">
-                        <h3>Move Fast, Break Nothing</h3>
-                        <p>
-                            Speed matters, but not at the cost of quality. We've mastered the art of 
-                            rapid development without cutting corners. Agile methodologies, automated 
-                            testing, continuous integration — we use every tool to deliver fast AND right.
-                        </p>
+                <!-- Card 5 -->
+                <div class="pinned-card card-5">
+                    <div class="card-inner">
+                        <svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 3a1 1 0 0 1 .117 1.993l-.117 .007v4.764l1.894 3.789a1 1 0 0 1 .1 .331l.006 .116v2a1 1 0 0 1 -.883 .993l-.117 .007h-4v4a1 1 0 0 1 -1.993 .117l-.007 -.117v-4h-4a1 1 0 0 1 -.993 -.883l-.007 -.117v-2a1 1 0 0 1 .06 -.34l.046 -.107l1.894 -3.791v-4.762a1 1 0 0 1 -.117 -1.993l.117 -.007h8z" />
+                        </svg>
+                        <div class="card-content-box">
+                            <span class="card-number">05</span>
+                            <h3>Move Fast, Break Nothing</h3>
+                            <p>Speed matters, but not at the cost of quality. We've mastered the art of rapid development without cutting corners.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="team-container">
-            <h2>Built by Passionate Humans</h2>
-            <p class="team-description">
-                We're developers, designers, strategists, and dreamers who love what we do. 
-                Our team brings together diverse talents, perspectives, and a shared commitment 
-                to excellence.
-            </p>
+    <!-- Team Section with Founders Carousel -->
+    <section class="founders-carousel-section">
+        <h2 class="founders-section-heading">Meet Our Founders</h2>
+        <div class="founders-carousel-container">
+            <!-- Images Container -->
+            <div class="founders-images-container" id="foundersImagesContainer">
+                <!-- Images will be dynamically inserted here -->
+            </div>
 
-            <div class="team-stats">
-                <div class="team-stat">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Expert Engineers</div>
+            <!-- Content Container -->
+            <div class="founders-content-container">
+                <div id="foundersContentContainer">
+                    <!-- Content will be dynamically inserted here -->
                 </div>
-                <div class="team-stat">
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Years Experience</div>
+
+                <!-- Navigation Controls -->
+                <div class="founders-arrow-buttons">
+                    <button class="founder-arrow-button" id="foundersPrevBtn" aria-label="Previous founder">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="founder-arrow-button" id="foundersNextBtn" aria-label="Next founder">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
                 </div>
-                <div class="team-stat">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Projects Delivered</div>
-                </div>
-                <div class="team-stat">
-                    <div class="stat-number">99%</div>
-                    <div class="stat-label">Client Satisfaction</div>
+
+                <!-- Progress Dots -->
+                <div class="founders-dots" id="foundersDots">
+                    <!-- Dots will be dynamically inserted here -->
                 </div>
             </div>
         </div>
@@ -571,16 +1480,22 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
+        <!-- Decorative floating elements -->
+        <div class="cta-decoration cta-decoration-1">💡</div>
+        <div class="cta-decoration cta-decoration-2">⚡</div>
+        <div class="cta-decoration cta-decoration-3">🚀</div>
+        <div class="cta-decoration cta-decoration-4">✨</div>
+
         <div class="cta-container">
-            <h2>Ready to Build Something Amazing?</h2>
+            <h2>Ready to Build Something <span class="highlight">Amazing?</span></h2>
             <p>
                 Let's turn your vision into reality. Whether you have a detailed plan or just 
                 a napkin sketch, we're here to help.
             </p>
             <div class="cta-buttons">
                 <button class="cta-btn-primary" onclick="window.location.href='get-started.html'">
-                    Start Your Project
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                    <span>Start Your Project</span>
+                    <svg width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M4 10H16M16 10L10 4M16 10L10 16"/>
                     </svg>
                 </button>
@@ -591,8 +1506,67 @@
         </div>
     </section>
 
-
     <script src="script.js"></script>
+    <script src="founders-carousel.js"></script>
+    <script>
+        // Particle System for Hero Section
+        function createParticles() {
+            const particlesContainer = document.getElementById('heroParticles');
+            if (!particlesContainer) return;
+
+            const particleCount = window.innerWidth < 768 ? 15 : 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle-dot';
+                
+                // Random positioning
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.setProperty('--duration', (10 + Math.random() * 15) + 's');
+                particle.style.setProperty('--drift', (Math.random() * 100 - 50) + 'px');
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Random size variation
+                const size = 2 + Math.random() * 4;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', createParticles);
+        } else {
+            createParticles();
+        }
+
+        // Smooth scroll for scroll indicator
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', () => {
+                const storySection = document.querySelector('.story-section');
+                if (storySection) {
+                    storySection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            scrollIndicator.style.cursor = 'pointer';
+        }
+
+        // Add parallax effect to floating shapes
+        window.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                shape.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
+            });
+        });
+    </script>
+
 
     <!-- Footer -->
     <footer class="footer">

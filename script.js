@@ -1,3 +1,20 @@
+// Force page to start at top (Home/Hero section) on refresh/reload
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+    window.scrollTo(0, 0);
+});
+
 // Initial Entry Page Loader Controller (First Visit Only)
 (function() {
     const loader = document.getElementById('page-loader');
@@ -159,35 +176,75 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Form submission - Modern Contact Form
 const contactForm = document.querySelector('.contact-form-modern');
+const contactSuccessCard = document.getElementById('contactSuccessCard');
+const contactErrorMessage = document.getElementById('contactErrorMessage');
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
+        if (contactErrorMessage) contactErrorMessage.style.display = 'none';
+
         const button = contactForm.querySelector('.submit-button');
         const buttonText = button ? button.querySelector('.button-text') : null;
-        const originalText = buttonText ? buttonText.textContent : '';
+        const originalText = buttonText ? buttonText.textContent : 'Send Message';
         
         if (buttonText) buttonText.textContent = 'Sending...';
         if (button) button.style.pointerEvents = 'none';
         
-        // Simulate sending (replace with actual API call)
-        setTimeout(() => {
-            if (buttonText) buttonText.textContent = 'Message Sent!';
+        const nameVal = document.getElementById('name') ? document.getElementById('name').value : '';
+        const emailVal = document.getElementById('email') ? document.getElementById('email').value : '';
+        const subjectVal = document.getElementById('subject') ? document.getElementById('subject').value : '';
+        const messageVal = document.getElementById('message') ? document.getElementById('message').value : '';
+
+        const formData = new URLSearchParams();
+        formData.append('entry.123062433', nameVal);
+        formData.append('entry.841369507', emailVal);
+        formData.append('entry.794113971', subjectVal);
+        formData.append('entry.477585749', messageVal);
+
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLScXbVh9dFuskOqYhTQuhTt3Zd2bBgFM4lYcDRD7OJKCORcWAA/formResponse', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
+        }).then(() => {
             if (button) {
-                button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
                 createSuccessParticles(button);
             }
-            
-            setTimeout(() => {
-                if (buttonText) buttonText.textContent = originalText;
-                if (button) {
-                    button.style.background = '';
-                    button.style.pointerEvents = '';
-                }
-                contactForm.reset();
-            }, 3000);
-        }, 2000);
+            contactForm.style.display = 'none';
+            if (contactSuccessCard) {
+                contactSuccessCard.style.display = 'block';
+            }
+        }).catch((err) => {
+            console.error('Submission error:', err);
+            if (buttonText) buttonText.textContent = originalText;
+            if (button) button.style.pointerEvents = '';
+            if (contactErrorMessage) contactErrorMessage.style.display = 'block';
+        });
     });
+}
+
+function resetContactForm() {
+    const contactForm = document.querySelector('.contact-form-modern');
+    const contactSuccessCard = document.getElementById('contactSuccessCard');
+    const contactErrorMessage = document.getElementById('contactErrorMessage');
+    if (contactForm) {
+        contactForm.reset();
+        const button = contactForm.querySelector('.submit-button');
+        const buttonText = button ? button.querySelector('.button-text') : null;
+        if (buttonText) buttonText.textContent = 'Send Message';
+        if (button) button.style.pointerEvents = '';
+        contactForm.style.display = 'flex';
+    }
+    if (contactSuccessCard) {
+        contactSuccessCard.style.display = 'none';
+    }
+    if (contactErrorMessage) {
+        contactErrorMessage.style.display = 'none';
+    }
 }
 
 // Navbar scroll effect with animation
