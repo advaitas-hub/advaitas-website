@@ -5807,6 +5807,86 @@ html.no-loader #page-loader {
     transform: translateX(4px);
 }
 
+/* Inline Hero Stats Base Styling */
+.hero-stats-inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 40px;
+    padding: 16px 36px;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(8, 145, 178, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-stats-inline:hover {
+    border-color: rgba(34, 211, 238, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5), 0 0 35px rgba(34, 211, 238, 0.3);
+}
+
+.stat-box-inline {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.stat-icon-inline {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(8, 145, 178, 0.15);
+    border: 1px solid rgba(34, 211, 238, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #22d3ee;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.2);
+}
+
+.stat-icon-inline svg {
+    width: 22px;
+    height: 22px;
+    stroke: #22d3ee;
+}
+
+.stat-content-inline {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.stat-number-inline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label-inline {
+    font-size: 13px;
+    font-weight: 500;
+    color: #94a3b8;
+    letter-spacing: 0.3px;
+    margin-top: 2px;
+}
+
+.stat-divider-inline {
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(to bottom, transparent, rgba(34, 211, 238, 0.4), transparent);
+}
+
 /* =========================================================================
    COMPREHENSIVE MOBILE & TABLET RESPONSIVE SYSTEM
    ========================================================================= */
@@ -5980,27 +6060,31 @@ html.no-loader #page-loader {
     }
 
     .hero-stats-inline {
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         width: 100%;
-        gap: 14px;
+        max-width: 440px;
+        gap: 16px;
         margin-top: 32px;
-        padding: 18px 14px;
+        padding: 16px 20px;
+        border-radius: 24px;
+        justify-content: space-around;
         box-sizing: border-box;
     }
 
     .stat-box-inline {
-        width: 100%;
+        flex: 1;
+        min-width: 110px;
         justify-content: center;
     }
 
     .stat-divider-inline {
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.3), transparent);
+        display: none;
     }
 
     .stat-number-inline {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .stat-label-inline {
