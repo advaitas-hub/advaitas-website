@@ -19,7 +19,7 @@
             name: "Aditya B Mali",
             designation: "MD & Founder - Marketing Head",
             quote: "Driving brand strategy and innovation. Marketing isn't just about selling—it's about telling stories that connect with people's hearts and minds.",
-            image: "advaita-react/public/card images/card 2.jpg"
+            image: "card 2.jpg"
         },
         {
             id: 3,
@@ -45,14 +45,14 @@
         {
             id: 6,
             name: "Disha",
-            designation: "Team Lead & Founder",
+            designation: "CTO & Founder",
             quote: "Leading teams and ensuring project excellence. Great leaders don't create followers—they create more leaders who inspire others to reach their potential.",
             image: "advaita-react/public/card images/disha 11.png"
         },
         {
             id: 7,
-            name: "Aishu Parekar",
-            designation: "Designer & Founder",
+            name: "Aishu A Parekar",
+            designation: "CDO & Founder",
             quote: "Crafting beautiful user experiences and brand identity. Design is not just what it looks like—it's how it works, how it feels, and how it makes people feel.",
             image: "advaita-react/public/card images/handi.png"
         }

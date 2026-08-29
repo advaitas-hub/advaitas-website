@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Started - ADVAITA</title>
+    <title>ADVAITA - Get Started</title>
+    <link rel="icon" type="image/png" href="favicon-gpt.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Fredoka:wght@600;700&family=Griffy&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Shadows+Into+Light&family=Signika:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050810;
+            color: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
         .get-started-hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #0a0f1e 0%, #050810 100%);
@@ -17,85 +36,111 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            padding: 120px 20px 60px;
+            padding: 130px 20px 80px;
         }
 
         .get-started-hero::before {
             content: '';
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(8, 145, 178, 0.3) 0%, transparent 70%);
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.22) 0%, transparent 70%);
             border-radius: 50%;
-            top: -200px;
-            right: -200px;
+            top: -180px;
+            right: -180px;
             animation: float 8s ease-in-out infinite;
         }
 
         .get-started-container {
-            max-width: 1200px;
+            max-width: 1240px;
+            width: 100%;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
             position: relative;
             z-index: 2;
         }
 
-        .get-started-content h1 {
-            font-size: 56px;
-            color: #ffffff;
-            margin-bottom: 24px;
-            line-height: 1.2;
+        /* 1. Statement Section (Full Width, Top) */
+        .get-started-statement {
+            text-align: center;
+            max-width: 920px;
+            margin: 0 auto 52px;
         }
 
-        .get-started-content .gradient-text {
+        .get-started-statement h1 {
+            font-size: 52px;
+            color: #ffffff;
+            margin-bottom: 18px;
+            line-height: 1.18;
+            font-weight: 800;
+        }
+
+        .get-started-statement .gradient-text {
             background: linear-gradient(135deg, #0891b2, #22d3ee);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .get-started-content p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
-            margin-bottom: 40px;
+        .get-started-statement p.subtitle {
+            font-size: 19px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+            margin: 0 auto;
+        }
+
+        /* 2. Two-Column Main Grid Below Statement */
+        .get-started-main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        /* Left Side: Benefit Cards + Trust Stats */
+        .get-started-features {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            height: 100%;
         }
 
         .benefits-list {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 14px;
+            flex: 1;
+            justify-content: space-between;
         }
 
         .benefit-item {
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 18px;
+            padding: 20px 22px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.3s ease;
+            flex: 1;
         }
 
         .benefit-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateX(8px);
+            border-color: rgba(8, 145, 178, 0.4);
         }
 
         .benefit-icon {
             width: 48px;
             height: 48px;
             background: linear-gradient(135deg, #0891b2, #22d3ee);
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3);
         }
 
         .benefit-icon svg {
@@ -105,9 +150,10 @@
         }
 
         .benefit-text h3 {
-            font-size: 18px;
+            font-size: 17px;
             color: #ffffff;
             margin-bottom: 4px;
+            font-weight: 600;
         }
 
         .benefit-text p {
@@ -116,100 +162,584 @@
             margin: 0;
         }
 
-        .form-container {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Trust Stats Block */
+        .left-hero-graphic {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(34, 211, 238, 0.04));
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            border-radius: 20px;
+            padding: 20px 24px;
             backdrop-filter: blur(10px);
         }
 
-        .form-container h2 {
-            font-size: 32px;
+        .graphic-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(8, 145, 178, 0.15);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: #22d3ee;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #22d3ee;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #22d3ee;
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.6; }
+        }
+
+        .graphic-stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .g-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .g-num {
+            font-size: 22px;
+            font-weight: 800;
             color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .g-lbl {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .g-divider {
+            width: 1px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        /* Right Side: Form Container & Multi-Step Wizard */
+        .form-container {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 36px 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        /* Progress Wizard Header */
+        .wizard-header {
             margin-bottom: 24px;
-            text-align: center;
+        }
+
+        .wizard-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .wizard-step-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #22d3ee;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .wizard-percentage {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+        }
+
+        .progress-bar-track {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 33.33%;
+            background: linear-gradient(90deg, #0891b2, #22d3ee);
+            border-radius: 10px;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step-pills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .step-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .step-pill.active {
+            background: rgba(8, 145, 178, 0.18);
+            border-color: #22d3ee;
+            color: #ffffff;
+        }
+
+        .step-pill.completed {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: #10b981;
+            color: #10b981;
+        }
+
+        .pill-number {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+        }
+
+        .step-pill.active .pill-number {
+            background: #22d3ee;
+            color: #050810;
+        }
+
+        .step-pill.completed .pill-number {
+            background: #10b981;
+            color: #ffffff;
+        }
+
+        /* Input Wrappers & Icon Prefixes */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 18px;
+            position: relative;
         }
 
         .form-group label {
             display: block;
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 8px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 7px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%) !important;
+            width: 18px;
+            height: 18px;
+            stroke: rgba(255, 255, 255, 0.4);
+            transition: stroke 0.3s ease, color 0.3s ease;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .textarea-wrapper .input-icon {
+            top: 16px;
+            transform: none !important;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 13px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* Focus Glow State */
+        .form-input:focus {
+            border-color: #22d3ee;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 16px rgba(34, 211, 238, 0.25);
+            transform: none !important;
+        }
+
+        .input-wrapper:focus-within .input-icon,
+        .form-input:focus ~ .input-icon {
+            stroke: #22d3ee;
+            color: #22d3ee;
+            transform: translateY(-50%) !important;
+        }
+
+        .textarea-wrapper:focus-within .input-icon,
+        .textarea-wrapper .form-input:focus ~ .input-icon {
+            transform: none !important;
+        }
+
+        /* Custom Dropdown Styling */
+        .custom-select-wrapper {
+            position: relative;
+        }
+
+        .custom-select-wrapper select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 42px;
+            cursor: pointer;
+        }
+
+        .custom-select-arrow {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            stroke: rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+            transition: stroke 0.3s ease;
+        }
+
+        .custom-select-wrapper:focus-within .custom-select-arrow {
+            stroke: #22d3ee;
+        }
+
+        .custom-select-wrapper select option {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 12px;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* File Upload Box Styling */
+        .file-upload-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1.5px dashed rgba(255, 255, 255, 0.18);
+            border-radius: 12px;
+            padding: 14px 18px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .file-upload-box:hover {
+            background: rgba(8, 145, 178, 0.08);
+            border-color: #22d3ee;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 13.5px;
+            color: rgba(255, 255, 255, 0.75);
+            cursor: pointer;
+            margin: 0;
             font-weight: 500;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: #ffffff;
-            font-size: 16px;
-            transition: all 0.3s ease;
+        .file-upload-label svg {
+            width: 18px;
+            height: 18px;
+            stroke: #22d3ee;
+            flex-shrink: 0;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #0891b2;
-            background: rgba(255, 255, 255, 0.08);
+        .file-name-preview {
+            font-size: 12px;
+            color: #22d3ee;
+            margin-top: 6px;
+            font-weight: 500;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        .file-input-hidden {
+            display: none;
         }
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        .dynamic-field-group {
+            display: none;
+            animation: fadeIn 0.35s ease forwards;
         }
 
-        .submit-btn {
-            width: 100%;
-            padding: 16px 32px;
+        /* Field Validation States */
+        .input-wrapper.is-valid .form-input {
+            border-color: #10b981;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+        }
+
+        .input-wrapper.is-valid .input-icon {
+            stroke: #10b981;
+        }
+
+        .input-wrapper.is-invalid .form-input {
+            border-color: #ef4444;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+        }
+
+        .input-wrapper.is-invalid .input-icon {
+            stroke: #ef4444;
+        }
+
+        .error-msg {
+            display: none;
+            font-size: 12px;
+            color: #f87171;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .input-wrapper.is-invalid + .error-msg {
+            display: block;
+        }
+
+        /* Wizard Step Animations */
+        .wizard-step {
+            display: none;
+            animation: fadeInStep 0.35s ease forwards;
+        }
+
+        .wizard-step.active {
+            display: block;
+        }
+
+        @keyframes fadeInStep {
+            from { opacity: 0; transform: translateX(12px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Wizard Navigation Buttons */
+        .wizard-actions {
+            display: flex;
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .wizard-btn-next,
+        .wizard-btn-submit {
+            flex: 2;
+            padding: 15px 24px;
             background: linear-gradient(135deg, #0891b2, #22d3ee);
             color: white;
             border: none;
             border-radius: 12px;
-            font-size: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .wizard-btn-next:hover,
+        .wizard-btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(8, 145, 178, 0.4);
+        }
+
+        .wizard-btn-back {
+            flex: 1;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            font-size: 15px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+        .wizard-btn-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
         }
 
+        /* Trust Microcopy */
+        .trust-microcopy {
+            background: rgba(8, 145, 178, 0.08);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .trust-icon {
+            width: 16px;
+            height: 16px;
+            stroke: #22d3ee;
+            flex-shrink: 0;
+        }
+
+        /* Success Card UI */
+        .success-message-card {
+            display: none;
+            text-align: center;
+            padding: 36px 16px;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+        }
+
+        .success-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: #ffffff;
+        }
+
+        .success-message-card h3 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .success-message-card p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .reset-form-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .reset-form-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #22d3ee;
+        }
+
+        /* Responsive Behavior: Mobile & Tablet Stack Order */
         @media (max-width: 968px) {
-            .get-started-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
+            .get-started-statement {
+                margin-bottom: 36px;
             }
 
-            .get-started-content h1 {
-                font-size: 42px;
+            .get-started-statement h1 {
+                font-size: 38px;
+            }
+
+            .get-started-statement p.subtitle {
+                font-size: 16px;
+            }
+
+            .get-started-main-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .step-pills {
+                font-size: 11px;
+            }
+
+            .step-pill span.pill-text {
+                display: none;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -221,9 +751,9 @@
                 </a>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html#home" class="nav-link animated-link" data-text="Home">Home</a></li>
-                <li><a href="index.html#services" class="nav-link animated-link" data-text="Services">Services</a></li>
-                <li><a href="index.html#about" class="nav-link animated-link" data-text="About">About</a></li>
+                <li><a href="index.html" class="nav-link animated-link" data-text="Home">Home</a></li>
+                <li><a href="services.html" class="nav-link animated-link" data-text="Services">Services</a></li>
+                <li><a href="about.html" class="nav-link animated-link" data-text="About">About</a></li>
                 <li><a href="portfolio.html" class="nav-link animated-link" data-text="Portfolio">Portfolio</a></li>
                 <li><a href="index.html#contact" class="nav-link animated-link" data-text="Contact">Contact</a></li>
                 <li><button class="liquid-metal-btn" onclick="window.location.href='get-started.html'">Get Started</button></li>
@@ -239,135 +769,466 @@
     <!-- Get Started Hero Section -->
     <section class="get-started-hero">
         <div class="get-started-container">
-            <!-- Left Content -->
-            <div class="get-started-content">
+            
+            <!-- 1. Full-Width Statement Section (Top) -->
+            <div class="get-started-statement">
                 <h1>Let's Build Something <span class="gradient-text">Amazing Together</span></h1>
-                <p>
-                    Ready to transform your vision into reality? Tell us about your project and let's start creating 
+                <p class="subtitle">
+                    Ready to transform your vision into reality? Tell us about your project and let's start creating
                     digital solutions that drive real results.
                 </p>
+            </div>
 
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+            <!-- 2. Two-Column Main Grid (Below Statement) -->
+            <div class="get-started-main-grid">
+                
+                <!-- Left Side: Benefit Cards + Trust Stats Block -->
+                <div class="get-started-features">
+                    <div class="benefits-list">
+                        <!-- Benefit 1: Compass Icon -->
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Free Strategy Consultation</h3>
+                                <p>30-minute discovery & strategy session with our lead architects</p>
+                            </div>
                         </div>
-                        <div class="benefit-text">
-                            <h3>Free Consultation</h3>
-                            <p>30-minute strategy session with our experts</p>
+
+                        <!-- Benefit 2: Layers / Proposal Icon -->
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                                    <polyline points="2 17 12 22 22 17"/>
+                                    <polyline points="2 12 12 17 22 12"/>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Custom Architecture Proposal</h3>
+                                <p>Tailored solution blueprint and transparent cost breakdown</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefit 3: Clock Icon -->
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Fast 24-Hour Turnaround</h3>
+                                <p>Our team will review your requirements and respond within 24 hours</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
+                    <!-- Trust Stats Block -->
+                    <div class="left-hero-graphic">
+                        <div class="graphic-badge">
+                            <div class="pulse-dot"></div>
+                            <span>Engineering Excellence Guaranteed</span>
                         </div>
-                        <div class="benefit-text">
-                            <h3>Custom Proposal</h3>
-                            <p>Tailored solution designed for your needs</p>
-                        </div>
-                    </div>
-
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Fast Response</h3>
-                            <p>We'll get back to you within 24 hours</p>
+                        <div class="graphic-stats">
+                            <div class="g-stat">
+                                <span class="g-num">100%</span>
+                                <span class="g-lbl">Confidential & Secure</span>
+                            </div>
+                            <div class="g-divider"></div>
+                            <div class="g-stat">
+                                <span class="g-num">&lt; 24h</span>
+                                <span class="g-lbl">Average Response Time</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Right Form -->
-            <div class="form-container">
-                <h2>Start Your Project</h2>
-                <form id="getStartedForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required>
+                <!-- Right Side: Multi-Step Form Wizard Card -->
+                <div class="form-container">
+                    <!-- Progress Wizard Header -->
+                    <div class="wizard-header" id="wizardHeader">
+                        <div class="wizard-meta">
+                            <span class="wizard-step-title" id="wizardStepTitle">Step 1 of 2: Contact Info</span>
+                            <span class="wizard-percentage" id="wizardPercentage">50%</span>
                         </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required>
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" id="progressBarFill" style="width: 50%;"></div>
+                        </div>
+                        <div class="step-pills">
+                            <div class="step-pill active" id="pillStep1">
+                                <div class="pill-number">1</div>
+                                <span class="pill-text">Contact</span>
+                            </div>
+                            <div class="step-pill" id="pillStep2">
+                                <div class="pill-number">2</div>
+                                <span class="pill-text">Project</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+                    <!-- Hidden Iframe for Google Form POST -->
+                    <iframe name="google_form_target" id="google_form_target" style="display:none;" onload="handleGoogleFormIframeResponse()"></iframe>
 
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
+                    <form id="getStartedForm" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSf7piaADmqD1XXXQefxBO_QmJ09Fl3gaguxc4lvcb0BqEg9wQ/formResponse" method="POST" target="google_form_target" novalidate>
+                        <!-- STEP 1: Contact Info -->
+                        <div class="wizard-step step-1 active" id="step1">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <div class="input-wrapper" id="wrap_fullName">
+                                    <input type="text" id="fullName" name="entry.1638128222" class="form-input" required>
+                                </div>
+                                <div class="error-msg">Full name is required</div>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="company">Company Name</label>
-                        <input type="text" id="company" name="company">
-                    </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <div class="input-wrapper" id="wrap_email">
+                                        <input type="email" id="email" name="entry.372610991" class="form-input" required>
+                                    </div>
+                                    <div class="error-msg">Please enter a valid email address</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <div class="input-wrapper" id="wrap_phone">
+                                        <input type="tel" id="phone" name="entry.1423373992" class="form-input" required>
+                                    </div>
+                                    <div class="error-msg">Phone number is required</div>
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="service">Service Interested In *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option value="custom-software">Custom Software Development</option>
-                            <option value="web-development">Web Development</option>
-                            <option value="mobile-apps">Mobile Applications</option>
-                            <option value="consulting">Technical Consulting</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="company">Organization / Company Name</label>
+                                    <div class="input-wrapper" id="wrap_company">
+                                        <input type="text" id="company" name="entry.1612586473" class="form-input">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactMethod">Preferred Contact Method</label>
+                                    <div class="input-wrapper custom-select-wrapper" id="wrap_contactMethod">
+                                        <select id="contactMethod" name="entry.975109106" class="form-input">
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone Call</option>
+                                            <option value="WhatsApp">WhatsApp</option>
+                                        </select>
+                                        <svg class="custom-select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="budget">Estimated Budget</label>
-                        <select id="budget" name="budget">
-                            <option value="">Select budget range</option>
-                            <option value="10k-25k">$10,000 - $25,000</option>
-                            <option value="25k-50k">$25,000 - $50,000</option>
-                            <option value="50k-100k">$50,000 - $100,000</option>
-                            <option value="100k+">$100,000+</option>
-                        </select>
-                    </div>
+                            <div class="wizard-actions">
+                                <button type="button" class="wizard-btn-next" onclick="goToStep(2)">
+                                    <span>Next: Project Details</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="9 18 15 12 9 6"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="timeline">Project Timeline</label>
-                        <select id="timeline" name="timeline">
-                            <option value="">Select timeline</option>
-                            <option value="urgent">Urgent (< 1 month)</option>
-                            <option value="1-3months">1-3 months</option>
-                            <option value="3-6months">3-6 months</option>
-                            <option value="6months+">6+ months</option>
-                        </select>
-                    </div>
+                        <!-- STEP 2: Project Details -->
+                        <div class="wizard-step step-2" id="step2">
+                            <div class="form-group">
+                                <label for="service">Service Interested In *</label>
+                                <div class="input-wrapper custom-select-wrapper" id="wrap_service">
+                                    <select id="service" name="entry.1236025348" class="form-input" required>
+                                        <option value="UI/UX Design">UI/UX Design</option>
+                                        <option value="Web Design">Web Design</option>
+                                        <option value="Landing Page Design">Landing Page Design</option>
+                                        <option value="Mobile App Design">Mobile App Design</option>
+                                        <option value="Web Redesign">Web Redesign</option>
+                                        <option value="Branding">Branding</option>
+                                        <option value="Web Development">Web Development</option>
+                                        <option value="Software Development">Software Development</option>
+                                        <option value="Mobile App Development">Mobile App Development</option>
+                                    </select>
+                                    <svg class="custom-select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"/>
+                                    </svg>
+                                </div>
+                                <div class="error-msg">Please select a service</div>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="message">Tell Us About Your Project *</label>
-                        <textarea id="message" name="message" required placeholder="Describe your project goals, requirements, and any specific needs..."></textarea>
-                    </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="existingSystem">Existing Website / System?</label>
+                                    <div class="input-wrapper custom-select-wrapper" id="wrap_existingSystem">
+                                        <select id="existingSystem" name="entry.566281064" class="form-input" onchange="toggleExistingDetailsField(this.value)">
+                                            <option value="No">No (Building from scratch)</option>
+                                            <option value="Yes">Yes (Upgrading / Migrating)</option>
+                                        </select>
+                                        <svg class="custom-select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="6 9 12 15 18 9"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="expectedScale">Expected Scale / Users</label>
+                                    <div class="input-wrapper" id="wrap_expectedScale">
+                                        <input type="text" id="expectedScale" name="entry.334255553" class="form-input">
+                                    </div>
+                                </div>
+                            </div>
 
-                    <button type="submit" class="submit-btn">Submit Project Request</button>
-                </form>
+                            <!-- Dynamic Follow-up Field for Existing System -->
+                            <div class="form-group dynamic-field-group" id="wrap_existingDetailsGroup">
+                                <label for="existingDetails">Details About Existing System</label>
+                                <div class="input-wrapper" id="wrap_existingDetails">
+                                    <input type="text" id="existingDetails" name="entry.1835012825" class="form-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Tell Us About Your Project *</label>
+                                <div class="input-wrapper textarea-wrapper" id="wrap_message">
+                                    <textarea id="message" name="entry.621665603" class="form-input form-textarea" required></textarea>
+                                </div>
+                                <div class="error-msg">Project description is required</div>
+                            </div>
+
+                            <div class="wizard-actions">
+                                <button type="button" class="wizard-btn-back" onclick="goToStep(1)">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="15 18 9 12 15 6"/>
+                                    </svg>
+                                    <span>Back</span>
+                                </button>
+                                <button type="submit" id="submitBtn" class="wizard-btn-submit">
+                                    <span>Submit Project Request</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="22" y1="2" x2="11" y2="13"/>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Success Confirmation Card -->
+                    <div id="successCard" class="success-message-card">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        <h3>Request Submitted!</h3>
+                        <p>Thank you, <strong id="successClientName">Client</strong>. Your project request has been submitted. Our engineering team will review your requirements and respond within 24 hours.</p>
+                        <button type="button" class="reset-form-btn" onclick="resetGetStartedForm()">Submit Another Request</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <script src="script.js"></script>
     <script>
-        document.getElementById('getStartedForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your submission! We will get back to you within 24 hours.');
-            this.reset();
+        // =========================================================================
+        // GOOGLE FORMS CONFIGURATION
+        // =========================================================================
+        const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSf7piaADmqD1XXXQefxBO_QmJ09Fl3gaguxc4lvcb0BqEg9wQ/formResponse";
+
+        const GOOGLE_ENTRY_IDS = {
+            fullName:        "entry.1638128222",
+            email:           "entry.372610991",
+            phone:           "entry.1423373992",
+            company:         "entry.1612586473",
+            contactMethod:   "entry.975109106",
+            service:         "entry.1236025348",
+            existingSystem:  "entry.566281064",
+            existingDetails: "entry.1835012825",
+            expectedScale:   "entry.334255553",
+            message:         "entry.621665603",
+            budget:          "entry.1616114579",
+            timeline:        "entry.1673979375"
+        };
+
+        let currentStep = 1;
+        let isFormSubmitted = false;
+
+        // Initialize Field-Level Validation
+        document.querySelectorAll('.form-input').forEach(function(input) {
+            input.addEventListener('blur', function() {
+                validateSingleField(this, false);
+            });
+            input.addEventListener('input', function() {
+                validateSingleField(this, false);
+            });
         });
+
+        function validateSingleField(input, forceShowError) {
+            const wrapper = input.closest('.input-wrapper');
+            if (!wrapper) return true;
+
+            const val = input.value.trim();
+            let isValid = true;
+
+            if (input.hasAttribute('required') && val === '') {
+                isValid = false;
+            } else if (input.type === 'email' && val !== '') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                isValid = emailRegex.test(val);
+            }
+
+            if (val === '') {
+                // Keep neutral if empty, unless user clicked Next/Submit (forceShowError)
+                if (forceShowError) {
+                    wrapper.classList.remove('is-valid');
+                    wrapper.classList.add('is-invalid');
+                } else {
+                    wrapper.classList.remove('is-valid', 'is-invalid');
+                }
+            } else if (isValid) {
+                wrapper.classList.remove('is-invalid');
+                wrapper.classList.add('is-valid');
+            } else {
+                wrapper.classList.remove('is-valid');
+                wrapper.classList.add('is-invalid');
+            }
+
+            return isValid;
+        }
+
+        // Toggle Dynamic Field for Existing System Details
+        function toggleExistingDetailsField(val) {
+            const group = document.getElementById('wrap_existingDetailsGroup');
+            if (val && val.toLowerCase() === 'yes') {
+                group.style.display = 'block';
+            } else {
+                group.style.display = 'none';
+                document.getElementById('existingDetails').value = '';
+            }
+        }
+
+        // Multi-Step Wizard Controller
+        function goToStep(step) {
+            if (step > currentStep) {
+                // Validate required fields on current step before advancing
+                let stepValid = true;
+                const currentContainer = document.getElementById('step' + currentStep);
+                const inputs = currentContainer.querySelectorAll('.form-input[required]');
+
+                inputs.forEach(function(input) {
+                    if (!validateSingleField(input, true)) {
+                        stepValid = false;
+                    }
+                });
+
+                if (!stepValid) {
+                    return; // Block advancing if invalid
+                }
+            }
+
+            // Update Steps visibility
+            document.querySelectorAll('.wizard-step').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            document.getElementById('step' + step).classList.add('active');
+
+            currentStep = step;
+            updateWizardHeader(step);
+        }
+
+        function updateWizardHeader(step) {
+            const titleEl = document.getElementById('wizardStepTitle');
+            const percEl = document.getElementById('wizardPercentage');
+            const barEl = document.getElementById('progressBarFill');
+
+            const pill1 = document.getElementById('pillStep1');
+            const pill2 = document.getElementById('pillStep2');
+
+            if (step === 1) {
+                titleEl.textContent = 'Step 1 of 2: Contact Info';
+                percEl.textContent = '50%';
+                barEl.style.width = '50%';
+
+                pill1.className = 'step-pill active';
+                pill2.className = 'step-pill';
+            } else if (step === 2) {
+                titleEl.textContent = 'Step 2 of 2: Project Details';
+                percEl.textContent = '100%';
+                barEl.style.width = '100%';
+
+                pill1.className = 'step-pill completed';
+                pill2.className = 'step-pill active';
+            }
+        }
+
+        // Handle Final Form Submission
+        document.getElementById('getStartedForm').addEventListener('submit', function (e) {
+            // Validate Step 2 fields
+            const step2Inputs = document.getElementById('step2').querySelectorAll('.form-input[required]');
+            let step2Valid = true;
+            step2Inputs.forEach(function(input) {
+                if (!validateSingleField(input, true)) {
+                    step2Valid = false;
+                }
+            });
+            if (!step2Valid) {
+                e.preventDefault();
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            const fullName = document.getElementById('fullName').value.trim();
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Submitting Request...</span>';
+
+            isFormSubmitted = true;
+
+            setTimeout(function() {
+                showSuccessCard(fullName);
+            }, 600);
+        });
+
+        function handleGoogleFormIframeResponse() {
+            if (isFormSubmitted) {
+                const fullName = document.getElementById('fullName').value.trim();
+                showSuccessCard(fullName);
+            }
+        }
+
+        function showSuccessCard(fullName) {
+            document.getElementById('getStartedForm').style.display = 'none';
+            document.getElementById('wizardHeader').style.display = 'none';
+            document.getElementById('successClientName').textContent = fullName || 'there';
+            document.getElementById('successCard').style.display = 'block';
+        }
+
+        function resetGetStartedForm() {
+            document.getElementById('getStartedForm').reset();
+            document.querySelectorAll('.input-wrapper').forEach(function(w) {
+                w.classList.remove('is-valid', 'is-invalid');
+            });
+            document.getElementById('wrap_existingDetailsGroup').style.display = 'none';
+            document.getElementById('fileNamePreview').textContent = '';
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Submit Project Request</span>';
+            document.getElementById('successCard').style.display = 'none';
+            document.getElementById('wizardHeader').style.display = 'block';
+            document.getElementById('getStartedForm').style.display = 'block';
+            isFormSubmitted = false;
+            goToStep(1);
+        }
     </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 ADVAITA. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
+
 </html>

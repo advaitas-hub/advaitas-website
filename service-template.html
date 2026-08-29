@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVAITA - Service</title>
+    <link rel="stylesheet" href="styles.css?v=20240801">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Fredoka:wght@600;700&family=Griffy&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Shadows+Into+Light&family=Signika:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Service Page Styles */
+        .service-page {
+            padding-top: 80px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-page.loaded {
+            opacity: 1;
+        }
+
+        /* Page Transition */
+        .page-transition-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--dark-bg);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-transition-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Hero Section */
+        .service-hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-bg);
+            overflow: hidden;
+        }
+
+        .service-hero-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .service-hero-background .gradient-blur {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+        }
+
+        .service-hero-background .gradient-blur-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-blue);
+            top: -150px;
+            right: -150px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .service-hero-background .gradient-blur-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--light-blue);
+            bottom: -100px;
+            left: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+        }
+
+        .service-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .service-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(8, 145, 178, 0.15);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--light-blue);
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .service-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease 0.1s forwards;
+        }
+
+        .service-hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.6s ease 0.2s forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-btn-primary {
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.4);
+        }
+
+        .service-btn-secondary {
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .service-btn-secondary:hover {
+            background: rgba(8, 145, 178, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(8, 145, 178, 0.05) 50%, var(--dark-bg) 100%);
+        }
+
+        .problem-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .problem-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #f87171;
+            margin-bottom: 20px;
+        }
+
+        .problem-text {
+            font-size: 1.5rem;
+            color: var(--white);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Approach Section */
+        .approach-section {
+            padding: 100px 20px;
+            background: var(--dark-bg);
+        }
+
+        .approach-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .approach-steps {
+            display: grid;
+            gap: 30px;
+        }
+
+        .approach-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .approach-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .approach-step:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(8, 145, 178, 0.3);
+        }
+
+        .approach-step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .approach-step-text {
+            font-size: 1.1rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* Included Section */
+        .included-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(8, 145, 178, 0.05) 50%, var(--dark-bg) 100%);
+        }
+
+        .included-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .included-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .included-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .included-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(8, 145, 178, 0.3);
+        }
+
+        .included-check {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .included-check svg {
+            width: 14px;
+            height: 14px;
+            color: var(--white);
+        }
+
+        .included-text {
+            font-size: 1rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            padding: 80px 20px;
+            background: var(--dark-bg);
+        }
+
+        .tools-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tools-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .tool-badge {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+        }
+
+        .tool-badge:hover {
+            background: rgba(8, 145, 178, 0.15);
+            border-color: rgba(8, 145, 178, 0.3);
+            color: var(--light-blue);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(8, 145, 178, 0.05) 50%, var(--dark-bg) 100%);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            margin-top: 60px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(8, 145, 178, 0.3);
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .faq-question-text {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            background: rgba(8, 145, 178, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-toggle svg {
+            width: 20px;
+            height: 20px;
+            color: var(--light-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: var(--accent-blue);
+        }
+
+        .faq-item.active .faq-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 24px 24px;
+        }
+
+        .faq-answer-text {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            background: var(--dark-bg);
+            position: relative;
+            text-align: center;
+        }
+
+        .cta-background {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .cta-background .gradient-blur {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+        }
+
+        .cta-background .gradient-blur-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--accent-blue);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 32px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(8, 145, 178, 0.4);
+        }
+
+        @media (max-width: 640px) {
+            .included-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+    </style>
+</head>
+<body class="service-page">
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-glow"></div>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Generated_image_1-removebg-preview.png" alt="ADVAITA Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link animated-link" data-text="Home">Home</a></li>
+                <li><a href="services.html" class="nav-link animated-link" data-text="Services">Services</a></li>
+                <li><a href="about.html" class="nav-link animated-link" data-text="About">About</a></li>
+                <li><a href="portfolio.html" class="nav-link animated-link" data-text="Portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact" class="nav-link animated-link" data-text="Contact">Contact</a></li>
+                <li><button class="liquid-metal-btn" onclick="window.location.href='get-started.html'">Get Started</button></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="service-hero-background">
+            <div class="gradient-blur gradient-blur-1"></div>
+            <div class="gradient-blur gradient-blur-2"></div>
+        </div>
+        <div class="service-hero-content">
+            <div class="service-hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                <span id="service-name">Service</span>
+            </div>
+            <h1 class="service-hero-title" id="service-headline">Loading...</h1>
+            <div class="service-hero-buttons">
+                <a href="schedule-call.html" class="service-btn-primary">
+                    <span>Book a Call</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                </a>
+                <a href="portfolio.html" class="service-btn-secondary">See Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="problem-container">
+            <div class="problem-badge">The Problem</div>
+            <p class="problem-text" id="service-problem">Loading...</p>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section class="approach-section">
+        <div class="approach-container">
+            <div class="section-header">
+                <h2 class="section-title">Our Approach</h2>
+                <p class="section-description">How we bring this service to life</p>
+            </div>
+            <div class="approach-steps" id="approach-steps">
+                <!-- Steps will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Included Section -->
+    <section class="included-section">
+        <div class="included-container">
+            <div class="section-header">
+                <h2 class="section-title">What's Included</h2>
+                <p class="section-description">Deliverables you'll receive</p>
+            </div>
+            <div class="included-grid" id="included-grid">
+                <!-- Items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools-section">
+        <div class="tools-container">
+            <div class="section-header">
+                <h2 class="section-title">Tools & Tech We Use</h2>
+                <p class="section-description">Industry-standard tools for quality results</p>
+            </div>
+            <div class="tools-strip" id="tools-strip">
+                <!-- Tools will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-header">
+                <h2 class="section-title">FAQ</h2>
+                <p class="section-description">Common questions about this service</p>
+            </div>
+            <div class="faq-list" id="faq-list">
+                <!-- FAQs will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-background">
+            <div class="gradient-blur gradient-blur-1"></div>
+        </div>
+        <div class="cta-content">
+            <h2 class="cta-title" id="cta-title">Ready to start your project?</h2>
+            <a href="schedule-call.html" class="cta-button">
+                <span>Book a Free 30-Min Call</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Load service data
+        async function loadServiceData() {
+            try {
+                const response = await fetch('services-data.json');
+                const data = await response.json();
+                
+                // Get service slug from URL query params or path
+                const urlParams = new URLSearchParams(window.location.search);
+                let slug = urlParams.get('service');
+                if (!slug) {
+                    const pathParts = window.location.pathname.split('/');
+                    slug = pathParts[pathParts.length - 1].replace('.html', '');
+                }
+                if (!slug || slug === 'service-template') {
+                    slug = 'web-development'; // Default fallback service
+                }
+                
+                const service = data.services[slug] || data.services['web-development'];
+                
+                if (service) {
+                    // Update page content
+                    document.title = `ADVAITA - ${service.name}`;
+                    document.getElementById('service-name').textContent = service.name;
+                    document.getElementById('service-headline').textContent = service.headline;
+                    document.getElementById('service-problem').textContent = service.problem;
+                    document.getElementById('cta-title').textContent = `Ready to start your ${service.name}?`;
+                    
+                    // Populate approach steps
+                    const approachSteps = document.getElementById('approach-steps');
+                    approachSteps.innerHTML = service.approach.map((step, index) => `
+                        <div class="approach-step" style="transition-delay: ${index * 0.1}s">
+                            <div class="approach-step-number">${index + 1}</div>
+                            <div class="approach-step-text">${step}</div>
+                        </div>
+                    `).join('');
+                    
+                    // Populate included items
+                    const includedGrid = document.getElementById('included-grid');
+                    includedGrid.innerHTML = service.included.map((item, index) => `
+                        <div class="included-item" style="transition-delay: ${index * 0.1}s">
+                            <div class="included-check">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <div class="included-text">${item}</div>
+                        </div>
+                    `).join('');
+                    
+                    // Populate tools
+                    const toolsStrip = document.getElementById('tools-strip');
+                    toolsStrip.innerHTML = service.tools.map(tool => `
+                        <div class="tool-badge">${tool}</div>
+                    `).join('');
+                    
+                    // Populate FAQs
+                    const faqList = document.getElementById('faq-list');
+                    faqList.innerHTML = service.faq.map(faq => `
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span class="faq-question-text">${faq.question}</span>
+                                <div class="faq-toggle">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="faq-answer">
+                                <p class="faq-answer-text">${faq.answer}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    // Initialize FAQ accordions
+                    initFAQ();
+                    
+                    // Initialize scroll animations
+                    initScrollAnimations();
+                    
+                    // Show page
+                    document.body.classList.add('loaded');
+                } else {
+                    // Service not found, redirect to services overview
+                    window.location.href = 'services.html';
+                }
+            } catch (error) {
+                console.error('Error loading service data:', error);
+                window.location.href = 'services.html';
+            }
+        }
+
+        // FAQ Accordion
+        function initFAQ() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.approach-step, .included-item').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Page Transition
+        function handlePageTransition() {
+            const overlay = document.querySelector('.page-transition-overlay');
+            const links = document.querySelectorAll('a[href$=".html"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    // Skip if it's the same page or external link
+                    if (href === window.location.pathname || href.startsWith('http')) return;
+                    
+                    e.preventDefault();
+                    overlay.classList.add('active');
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                });
+            });
+        }
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadServiceData();
+            handlePageTransition();
+        });
+    </script>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 ADVAITA. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
